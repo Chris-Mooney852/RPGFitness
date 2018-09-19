@@ -4,9 +4,9 @@ using System.Text;
 
 namespace RPGFitness.Classes
 {
-    class Person
+    class User
     {
-        public Person()
+        public User()
         {
 
         }
