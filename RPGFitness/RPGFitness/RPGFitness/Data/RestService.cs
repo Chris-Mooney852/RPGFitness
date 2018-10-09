@@ -96,6 +96,10 @@ namespace RPGFitness.Data
             return response.Headers.Location;
         }
 
+        /// <summary>
+        /// calls the CreateIngredientAsync function and awaits for it to run
+        /// </summary>
+        /// <param name="ingredient">Ingredient to be added</param>
         public async void DoCreateIngredient(Ingredient ingredient)
         {
             await CreateIngredientAsync(ingredient);
