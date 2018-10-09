@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace RPGFitness.Data
 {
@@ -7,6 +10,7 @@ namespace RPGFitness.Data
     {
         Task<List<Ingredient>> GetIngredientAsync();
         void ShowIngredients();
+        Task<Uri> CreateIngredient(Ingredient ingredient);
 
     }
 }

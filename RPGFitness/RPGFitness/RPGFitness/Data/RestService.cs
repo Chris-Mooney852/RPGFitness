@@ -1,18 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -22,8 +10,12 @@ namespace RPGFitness.Data
     {
         HttpClient client;
 
+
         public List<Ingredient> Ingredients { get; set; }
 
+        /// <summary>
+        /// Initializes the rest service to be used with the API
+        /// </summary>
         public RestService()
         {
             client = new HttpClient();
@@ -31,6 +23,10 @@ namespace RPGFitness.Data
             client.DefaultRequestHeaders.Add("ZUMO-API-VERSION", "2.0.0");
         }
 
+        /// <summary>
+        /// Retrieves the list of all ingredients from the SQL database using the API
+        /// </summary>
+        /// <returns>List of Ingredients</returns>
         public async Task<List<Ingredient>> GetIngredientAsync()
         {
             Ingredients = new List<Ingredient>();
@@ -59,6 +55,9 @@ namespace RPGFitness.Data
 
         }
 
+        /// <summary>
+        /// Awaits for GetIngredientsAsync to finish then displays the list of ingredients
+        /// </summary>
         public async void ShowIngredients()
         {
             await GetIngredientAsync();
@@ -67,6 +66,30 @@ namespace RPGFitness.Data
             {
                 Console.WriteLine(ingredient.ToString() + "\n");
             }
+        }
+
+        /// <summary>
+        /// Adds the provided ingredient to the database
+        /// </summary>
+        /// <param name="ingredient">Ingredient to be added to the database</param>
+        /// <returns>The URI of the created ingredient</returns>
+        public async Task<Uri> CreateIngredient(Ingredient ingredient)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+            try
+            {
+                response = await client.PostAsJsonAsync("Ingredient/", ingredient);
+                response.EnsureSuccessStatusCode();
+
+                
+                Console.WriteLine(response.Headers.Location);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(@"				ERROR Exception Caught while creating items: {0}", e.Message);
+            }
+
+            return response.Headers.Location;
         }
     }
 }
