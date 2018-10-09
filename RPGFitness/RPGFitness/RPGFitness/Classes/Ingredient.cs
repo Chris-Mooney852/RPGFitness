@@ -1,23 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
-namespace RPGFitness.Classes
+namespace RPGFitness
 {
-    class Ingredient
+    public class Ingredient
     {
-        private string ingredientName { get; set; }
-        private uint calories { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Calories { get; set; }
+        
 
         public Ingredient()
         {
 
         }
 
-        public Ingredient (string name, uint calories)
+        public Ingredient(int id, string name, int calories)
         {
-            ingredientName = name;
-            this.calories = calories;
+            this.ID = id;
+            this.Name = name;
+            this.Calories = calories;
         }
-    }
+
+        public override string ToString()
+        {
+
+            return String.Format("ID: {0} Name: {1} Calories: {2}", ID, Name, Calories);
+
+        }
+
+    }   
 }
