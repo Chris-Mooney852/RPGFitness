@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -73,15 +74,18 @@ namespace RPGFitness.Data
         /// </summary>
         /// <param name="ingredient">Ingredient to be added to the database</param>
         /// <returns>The URI of the created ingredient</returns>
-        public async Task<Uri> CreateIngredient(Ingredient ingredient)
+        public async Task<Uri> CreateIngredientAsync(Ingredient ingredient)
         {
             HttpResponseMessage response = new HttpResponseMessage();
+            var uri = new Uri(string.Format(Constraints.RestUrl + "Ingredient/"));
             try
             {
-                response = await client.PostAsJsonAsync("Ingredient/", ingredient);
+                var content = JsonConvert.SerializeObject(ingredient);
+                var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
+
+                response = await client.PostAsync(uri, stringContent);
                 response.EnsureSuccessStatusCode();
 
-                
                 Console.WriteLine(response.Headers.Location);
             }
             catch (Exception e)
@@ -90,6 +94,11 @@ namespace RPGFitness.Data
             }
 
             return response.Headers.Location;
+        }
+
+        public async void DoCreateIngredient(Ingredient ingredient)
+        {
+            await CreateIngredientAsync(ingredient);
         }
     }
 }

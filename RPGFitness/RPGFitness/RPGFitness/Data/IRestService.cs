@@ -10,7 +10,7 @@ namespace RPGFitness.Data
     {
         Task<List<Ingredient>> GetIngredientAsync();
         void ShowIngredients();
-        Task<Uri> CreateIngredient(Ingredient ingredient);
+        Task<Uri> CreateIngredientAsync(Ingredient ingredient);
 
     }
 }

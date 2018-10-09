@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
-using Xamarin.Forms;
-using System.Diagnostics;
+using Newtonsoft.Json;
 using RPGFitness.Data;
+using Xamarin.Forms;
 
 namespace RPGFitness
 {
@@ -16,7 +15,7 @@ namespace RPGFitness
             InitializeComponent();
             RestService rest = new RestService();
             Ingredient ingredient = new Ingredient(5, "coke", 100);
-            rest.CreateIngredient(ingredient);
+            rest.DoCreateIngredient(ingredient);
 
         }
     }
