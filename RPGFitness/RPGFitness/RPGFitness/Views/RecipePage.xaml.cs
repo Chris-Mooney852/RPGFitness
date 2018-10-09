@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPGFitness.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,18 @@ using Xamarin.Forms.Xaml;
 
 namespace RPGFitness.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RecipePage : ContentPage
-	{
-		public RecipePage ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class RecipePage : ContentPage
+    {
+        public RecipePage()
+        {
+            InitializeComponent();
+
+
+        }
+    }
+
+       
+
+   
 }

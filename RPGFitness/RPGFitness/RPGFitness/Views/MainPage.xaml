@@ -4,8 +4,8 @@
              xmlns:views="clr-namespace:RPGFitness.Views"
              xmlns:local="clr-namespace:RPGFitness"
              x:Class="RPGFitness.MainPage">
-
-    <TabbedPage.Children>
+    
+        <TabbedPage.Children>
         <NavigationPage Title="Home">
             <x:Arguments>
                 <views:HomePage/>

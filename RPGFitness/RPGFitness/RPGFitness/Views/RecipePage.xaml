@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RPGFitness.Views.RecipePage">
+             x:Class="RPGFitness.Views.RecipePage"
+             xmlns:classes="clr-namespace:RPGFitness.Classes">
+             
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Recipe Page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Label Text="Enter calories consumed"/>
+            <Entry x:Name="CalorieEntry" Text="">
+                <Entry.BindingContext>
+                    <classes:User/>
+                </Entry.BindingContext>
+            </Entry>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
