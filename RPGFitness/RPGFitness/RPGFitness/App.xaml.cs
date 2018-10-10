@@ -10,10 +10,14 @@ namespace RPGFitness
     public partial class App : Application
     {
         //public static Ingredient Ingredient { get; private set; }
+        public static ItemManager Manager { get; private set; }
+
+
 
         public App()
         {
             InitializeComponent();
+            Manager = new ItemManager(new RestService());
 
             MainPage = new MainPage();     
 
