@@ -11,6 +11,8 @@ namespace RPGFitness.Data
         Task<List<Ingredient>> GetIngredientAsync();
         void ShowIngredients();
         Task<Uri> CreateIngredientAsync(Ingredient ingredient);
+        Task<Ingredient> UpdateIngredientAsync(Ingredient ingredient);
+        Task<HttpResponseMessage> DeleteIngredientAsync(Ingredient ingredient);
 
     }
 }

@@ -14,8 +14,8 @@ namespace RPGFitness
         {
             InitializeComponent();
             RestService rest = new RestService();
-            Ingredient ingredient = new Ingredient(5, "coke", 100);
-            rest.DoCreateIngredient(ingredient);
+            Ingredient ingredient = new Ingredient(1, "coke vanilla", 1000);
+            rest.DoDelete(ingredient);
 
         }
     }

@@ -21,9 +21,9 @@ namespace RPGFitness
         /// <param name="calories">Total calories in the ingredient</param>
         public Ingredient(int id, string name, int calories)
         {
-            this.ID = id;
-            this.Name = name;
-            this.Calories = calories;
+            ID = id;
+            Name = name;
+            Calories = calories;
         }
 
         /// <summary>
