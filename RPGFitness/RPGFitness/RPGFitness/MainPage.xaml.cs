@@ -15,15 +15,15 @@ namespace RPGFitness
             InitializeComponent();
             RestService rest = new RestService();
             Ingredient ingredient = new Ingredient(1, "coke vanilla", 1000);
-            rest.ShowIngredients();
+            rest.showUser(3);
 
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-
-            //listView.ItemsSource = await App.Manager.ReturnIngredientAsync();
+            NameLabel.BindingContext = await App.Manager.ReturnUserAsync();
+            //listView.ItemsSource = await App.Manager.ReturnUserAsync();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace RPGFitness.Data
         IRestService restservice;
 
         public List<Ingredient> currentIngredients { get; set; }
+        public User currentUser { get; set; }
 
         public ItemManager(IRestService service)
         {
@@ -19,6 +20,11 @@ namespace RPGFitness.Data
         public Task<List<Ingredient>> ReturnIngredientAsync()
         {
             return restservice.GetIngredientAsync();
+        }
+
+        public Task<User> ReturnUserAsync()
+        {
+            return restservice.GetUserAsync(3);
         }
     }
 }
