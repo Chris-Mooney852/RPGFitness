@@ -17,6 +17,10 @@ namespace RPGFitness.Views
 			InitializeComponent ();
 		}
 
-        
+        async void OnSubmitClicked(object sender, EventArgs e)
+        {
+            var userItem = (User)BindingContext;
+            await App.Manager.SaveUserAsync(userItem);
+        }
 	}
 }

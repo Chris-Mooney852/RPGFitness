@@ -12,13 +12,20 @@
             <Label Text="Welcome to RPGFitness"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Label Text="Username"/>
+            <Label Text="Username" FontSize="Small"
+                   HorizontalOptions="Center"/>
             <Entry/>
-            <Label Text="Password"/>
+            <Label Text="Password" FontSize="Small"
+                   HorizontalOptions="Center"/>
             <Entry/>
 
-            <Button Text="Login" 
+            <Button Text="Login" FontSize="Small"
                     Command="{Binding MainPageClickCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            <Label Text="Don't have an account?" FontSize="Small"/>
+            <Button Text="Sign Up" FontSize="Small"
+                    Command="{Binding SignUpPageClickCommand}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
         </StackLayout>

@@ -4,10 +4,17 @@
              x:Class="RPGFitness.Views.SignUpPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to RPGFitness"
-                VerticalOptions="CenterAndExpand" 
+            <Label Text="Youre Details"
+                VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            
+            <Label Text="Name"/>
+            <Entry x:Name="NameEntry" Text="{Binding UserName}"/>
+            <Label Text="Password"/>
+            <Entry x:Name="PasswordEntry" Text="{Binding UserPassword}"/>
+            <Label Text="Email Address"/>
+            <Entry x:Name="EmailEntry" Text="{Binding UserEmail}"/> 
+            <Button Text="Submit" Clicked="OnSubmitClicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

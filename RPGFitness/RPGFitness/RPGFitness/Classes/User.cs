@@ -25,6 +25,13 @@ namespace RPGFitness
             UserEmail = email;
         }
 
+        public User (string name, string password, string email)
+        {
+            UserName = name;
+            UserPassword = password;
+            UserEmail = email;
+        }
+
         public uint CalculateCaloriesLeft()
         {
             throw new NotImplementedException();

@@ -27,5 +27,10 @@ namespace RPGFitness.Data
         {
             return restservice.GetUserAsync(3);
         }
+
+        public Task SaveUserAsync(User user)
+        {
+            return restservice.CreateUserAsync(user);
+        }
     }
 }
