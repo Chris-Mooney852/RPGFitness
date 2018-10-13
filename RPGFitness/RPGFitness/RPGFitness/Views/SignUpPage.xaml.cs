@@ -10,18 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace RPGFitness.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Meals : ContentPage
+	public partial class SignUpPage : ContentPage
 	{
-		public Meals ()
+		public SignUpPage ()
 		{
 			InitializeComponent ();
-           
 		}
 
-        protected async override void OnAppearing()
-        {
-            base.OnAppearing();
-            MealList.ItemsSource = await App.Manager.ReturnIngredientAsync();
-        }
+        
 	}
 }

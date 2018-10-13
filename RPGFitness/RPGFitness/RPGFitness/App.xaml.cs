@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Diagnostics;
 using RPGFitness.Data;
+using RPGFitness.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace RPGFitness
@@ -10,12 +11,14 @@ namespace RPGFitness
     public partial class App : Application
     {
         //public static Ingredient Ingredient { get; private set; }
+        public static ItemManager Manager { get; private set; }
 
         public App()
         {
             InitializeComponent();
+            Manager = new ItemManager(new RestService());
 
-            MainPage = new MainPage();     
+            MainPage = new NavigationPage(new LoginPage());     
 
         }
 

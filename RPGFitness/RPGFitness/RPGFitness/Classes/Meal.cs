@@ -8,6 +8,7 @@ namespace RPGFitness.Classes
     {
         public Dictionary<string, uint> Ingredients { get; set; } = new Dictionary<string, uint>();
         public int TotalCalories { get; set; }
+        
 
         public Meal()
         {

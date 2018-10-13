@@ -8,14 +8,14 @@ using Xamarin.Forms;
 
 namespace RPGFitness
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : TabbedPage
     {
         public MainPage()
         {
             InitializeComponent();
             RestService rest = new RestService();
-            Ingredient ingredient = new Ingredient(1, "coke vanilla", 1000);
-            rest.showUser(3);
+            //Ingredient ingredient = new Ingredient(1, "coke vanilla", 1000);
+            //rest.showUser(3);
 
         }
     }
