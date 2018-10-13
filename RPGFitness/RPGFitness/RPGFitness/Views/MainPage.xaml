@@ -18,6 +18,12 @@
             </x:Arguments>
         </NavigationPage>
 
+        <NavigationPage Title="Home">
+            <x:Arguments>
+                <views:HomePage/>
+            </x:Arguments>
+        </NavigationPage>
+
 
     </TabbedPage.Children>
 

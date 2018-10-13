@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RPGFitness.Views.LoginPage">
+             xmlns:local="clr-namespace:RPGFitness.Views"
+             x:Class="RPGFitness.Views.LoginPage"
+             >
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout.BindingContext>
+                <local:ViewModel/>
+            </StackLayout.BindingContext>
             <Label Text="Welcome to RPGFitness"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
@@ -12,7 +17,10 @@
             <Label Text="Password"/>
             <Entry/>
 
-            <Button Text="Login" Clicked="OnLoginButtonClicked"/>
+            <Button Text="Login" 
+                    Command="{Binding MainPageClickCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

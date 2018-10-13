@@ -10,15 +10,23 @@ namespace RPGFitness
 {
     public partial class App : Application
     {
-        //public static Ingredient Ingredient { get; private set; }
+        
         public static ItemManager Manager { get; private set; }
+
+        private ContentPage mainPage;
+
 
         public App()
         {
             InitializeComponent();
             Manager = new ItemManager(new RestService());
 
-            MainPage = new NavigationPage(new LoginPage());     
+            //Make the app a navigation based app
+            mainPage = new LoginPage();
+            MainPage = new NavigationPage(mainPage);
+
+            //Assign a navigation object to the pageNavigationManager
+            PageNavigationManager.Instance.Navigation = MainPage.Navigation;
 
         }
 
