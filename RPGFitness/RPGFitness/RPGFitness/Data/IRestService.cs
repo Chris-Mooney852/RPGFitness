@@ -18,5 +18,10 @@ namespace RPGFitness.Data
         Task<Uri> CreateUserAsync(User user);
         Task<User> UpdateUserAsync(User user);
 
+        Task<List<Recipe>> GetRecipesAsync();
+        Task<Uri> CreateRecipeAsync(Recipe recipe, List<Ingredient> ingredients);
+        Task<Recipe> UpdateRecipeAsync(Recipe recipe, List<Ingredient> ingredients );
+
+        Task<List<RecipeContent>> GetRecipeContentsAsync();
     }
 }

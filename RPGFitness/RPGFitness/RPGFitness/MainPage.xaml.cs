@@ -13,10 +13,27 @@ namespace RPGFitness
         public MainPage()
         {
             InitializeComponent();
-            RestService rest = new RestService();
-            Ingredient ingredient = new Ingredient(1, "coke vanilla", 1000);
-            rest.showUser(3);
 
+            printRecipeAndIngredients();
+        }
+
+        public async void printRecipeAndIngredients()
+        {
+            RestService restService = new RestService();
+            
+            await restService.GetRecipesAsync();
+            Recipe snags = restService.Recipes.Find(x => x.RecipeId == 4);
+            await restService.GetRecipeContentsAsync();
+            List<RecipeContent> snagsContent = restService.RecipeContents.FindAll(x => x.RecipeId == snags.RecipeId);
+            await restService.GetIngredientAsync();
+            
+            Console.WriteLine(snags.ToString());
+
+            foreach (RecipeContent content in snagsContent)
+            {
+                Ingredient ingredient = restService.Ingredients.Find(x => x.ID == content.IngredientId);
+                Console.WriteLine(ingredient.ToString());
+            }
         }
     }
 }
