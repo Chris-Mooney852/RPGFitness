@@ -23,7 +23,7 @@ namespace RPGFitness
         {
             base.OnAppearing();
             NameLabel.BindingContext = await App.Manager.ReturnUserAsync();
-            //listView.ItemsSource = await App.Manager.ReturnUserAsync();
+            listView.ItemsSource = await App.Manager.ReturnIngredientAsync();
         }
     }
 }
