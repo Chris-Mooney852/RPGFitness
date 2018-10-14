@@ -14,15 +14,17 @@
                 HorizontalOptions="CenterAndExpand" />
             <Label Text="Username" FontSize="Small"
                    HorizontalOptions="Center"/>
-            <Entry/>
+            <Entry x:Name="NameEntry"/>
             <Label Text="Password" FontSize="Small"
                    HorizontalOptions="Center"/>
-            <Entry/>
+            <Entry x:Name="PasswordEntry"/>
 
             <Button Text="Login" FontSize="Small"
-                    Command="{Binding MainPageClickCommand}"
+                    Clicked="OnLoginClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
+            <Label x:Name="SuccessLabel" Text="" HorizontalOptions="Center"
+                   TextColor="Red"/>
             <Label Text="Don't have an account?" FontSize="Small"/>
             <Button Text="Sign Up" FontSize="Small"
                     Command="{Binding SignUpPageClickCommand}"

@@ -17,6 +17,7 @@ namespace RPGFitness.Data
         Task<User> GetUserAsync(int id);
         Task<Uri> CreateUserAsync(User user);
         Task<User> UpdateUserAsync(User user);
+        Task<List<User>> GetUserListAsync();
 
     }
 }

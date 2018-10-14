@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using System.Diagnostics;
 using RPGFitness.Data;
 using RPGFitness.Views;
+using System.Collections.Generic;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace RPGFitness
@@ -15,11 +16,16 @@ namespace RPGFitness
 
         private ContentPage mainPage;
 
+        //public List<User> allUsers { get; set; }
+
 
         public App()
         {
             InitializeComponent();
             Manager = new ItemManager(new RestService());
+
+            //allUsers = Manager.currentUsers;
+            
 
             //Make the app a navigation based app
             mainPage = new LoginPage();
@@ -27,6 +33,8 @@ namespace RPGFitness
 
             //Assign a navigation object to the pageNavigationManager
             PageNavigationManager.Instance.Navigation = MainPage.Navigation;
+
+            
 
         }
 

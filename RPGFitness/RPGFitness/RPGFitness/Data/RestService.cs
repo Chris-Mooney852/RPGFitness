@@ -15,6 +15,7 @@ namespace RPGFitness.Data
 
         public List<Ingredient> Ingredients { get; set; }
         public User User { get; set; }
+        public List<User> Users { get; set; }
 
         /// <summary>
         /// Initializes the rest service to be used with the API
@@ -271,6 +272,35 @@ namespace RPGFitness.Data
             // Deserialize the updated product from the response body.
             user = await response.Content.ReadAsAsync<User>();
             return user;
+        }
+
+        //Test function to see if we can return a list of user objects for login purposes
+        public async Task<List<User>> GetUserListAsync()
+        {
+            Users = new List<User>();
+            var uri = new Uri(string.Format(Constraints.RestUrl + "User/"));
+
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Users = JsonConvert.DeserializeObject<List<User>>(content);
+                    Console.WriteLine(@"              SUCCESS fetching Users");
+
+                }
+                else
+                {
+                    Console.WriteLine(@"               ERROR while fetching Users: {0}", response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(@"				ERROR Exception Caught while fetching Users: {0}", ex.Message);
+            }
+            return Users;
+
         }
     }
 }

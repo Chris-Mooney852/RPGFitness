@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RPGFitness.Views"
              x:Class="RPGFitness.Views.SignUpPage">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout.BindingContext>
+                <local:ViewModel/>
+            </StackLayout.BindingContext>
             <Label Text="Youre Details"
                 VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
@@ -13,7 +17,8 @@
             <Entry x:Name="PasswordEntry" Text="{Binding UserPassword}"/>
             <Label Text="Email Address"/>
             <Entry x:Name="EmailEntry" Text="{Binding UserEmail}"/> 
-            <Button Text="Submit" Clicked="OnSubmitClicked"/>
+            <Button Text="Submit" Clicked="OnSubmitClicked"
+                    Command="{Binding LoginPageClickCommand}"/>
 
         </StackLayout>
     </ContentPage.Content>

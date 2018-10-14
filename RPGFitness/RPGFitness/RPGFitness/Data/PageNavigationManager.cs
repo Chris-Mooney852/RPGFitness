@@ -39,5 +39,10 @@ namespace RPGFitness.Data
         {
             navigation.PushAsync(new MainPage());
         }
+
+        public void ShowLoginPage()
+        {
+            navigation.PushAsync(new Views.LoginPage());
+        }
     }
 }
