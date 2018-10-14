@@ -15,12 +15,23 @@ namespace RPGFitness.Views
 		public SignUpPage ()
 		{
 			InitializeComponent ();
-		}
+
+            
+        }
 
         async void OnSubmitClicked(object sender, EventArgs e)
         {
-            var userItem = (User)BindingContext;
-            await App.Manager.SaveUserAsync(userItem);
+            
+
+            User newUser = new User();
+
+
+            newUser.UserName = NameEntry.Text;
+            newUser.UserPassword = PasswordEntry.Text;
+            newUser.UserEmail = EmailEntry.Text;
+
+            await App.Manager.SaveUserAsync(newUser);
+            
         }
 	}
 }

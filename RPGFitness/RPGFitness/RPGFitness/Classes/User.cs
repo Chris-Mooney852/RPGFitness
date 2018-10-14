@@ -1,10 +1,11 @@
-﻿using System;
+﻿using RPGFitness.Classes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace RPGFitness
 {
-    public class User
+    public class User : BaseClass
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
@@ -17,12 +18,19 @@ namespace RPGFitness
         public Nullable<int> TargetDailySteps { get; set; }
         public Nullable<int> CurrentSteps { get; set; }
 
+        
+
+        public User() {
+            OnPropertyChanged();
+        }
+
         public User(int id, string name, string password, string email)
         {
             UserID = id;
             UserName = name;
             UserPassword = password;
             UserEmail = email;
+            
         }
 
         public User (string name, string password, string email)
@@ -30,6 +38,7 @@ namespace RPGFitness
             UserName = name;
             UserPassword = password;
             UserEmail = email;
+            
         }
 
         public uint CalculateCaloriesLeft()
