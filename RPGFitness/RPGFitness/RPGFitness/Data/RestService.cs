@@ -12,7 +12,12 @@ namespace RPGFitness.Data
     {
         HttpClient client;
 
+<<<<<<< HEAD
+        public List<Recipe> Recipes { get; set; }
+        public List<RecipeContent> RecipeContents { get; set; }
+=======
 
+>>>>>>> master
         public List<Ingredient> Ingredients { get; set; }
         public User User { get; set; }
 
@@ -42,17 +47,29 @@ namespace RPGFitness.Data
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     Ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(content);
+<<<<<<< HEAD
+                    Console.WriteLine(@"              SUCCESS fetching ingredients");
+=======
                     Console.WriteLine(@"              SUCCESS fetching items");
+>>>>>>> master
 
                 }
                 else
                 {
+<<<<<<< HEAD
+                    Console.WriteLine(@"               ERROR while fetching ingredients: {0}", response.StatusCode);
+=======
                     Console.WriteLine(@"               ERROR while fetching items: {0}", response.StatusCode);
+>>>>>>> master
                 }
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
+                Console.WriteLine(@"				ERROR Exception Caught while fetching ingredients: {0}", ex.Message);
+=======
                 Console.WriteLine(@"				ERROR Exception Caught while fetching items: {0}", ex.Message);
+>>>>>>> master
             }
             return Ingredients;
 
@@ -93,7 +110,11 @@ namespace RPGFitness.Data
             }
             catch (Exception e)
             {
+<<<<<<< HEAD
+                Console.WriteLine(@"				ERROR Exception Caught while creating ingredients: {0}", e.Message);
+=======
                 Console.WriteLine(@"				ERROR Exception Caught while creating items: {0}", e.Message);
+>>>>>>> master
             }
 
             return response.Headers.Location;
@@ -128,7 +149,11 @@ namespace RPGFitness.Data
             }
             catch (Exception e)
             {
+<<<<<<< HEAD
+                Console.WriteLine(@"				ERROR Exception Caught while updating ingredients: {0}", e.Message);
+=======
                 Console.WriteLine(@"				ERROR Exception Caught while updating items: {0}", e.Message);
+>>>>>>> master
             }
 
             // Deserialize the updated product from the response body.
@@ -162,7 +187,11 @@ namespace RPGFitness.Data
             }
             catch (Exception e)
             {
+<<<<<<< HEAD
+                Console.WriteLine(@"				ERROR Exception Caught while deleting ingredients: {0}", e.Message);
+=======
                 Console.WriteLine(@"				ERROR Exception Caught while deleting item: {0}", e.Message);
+>>>>>>> master
             }
             return response;
         }
@@ -272,5 +301,84 @@ namespace RPGFitness.Data
             user = await response.Content.ReadAsAsync<User>();
             return user;
         }
+<<<<<<< HEAD
+
+        /// <summary>
+        /// Retrieves list of recipes from the database
+        /// </summary>
+        /// <returns>List of Recipies</returns>
+        public async Task<List<Recipe>> GetRecipesAsync()
+        {
+            var uri = new Uri(string.Format(Constraints.RestUrl + "Recipe/"));
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Recipes = JsonConvert.DeserializeObject<List<Recipe>>(content);
+                    Console.WriteLine(@"              SUCCESS fetching Recipies");
+
+                }
+                else
+                {
+                    Console.WriteLine(@"               ERROR while fetching Recipies: {0}", response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(@"				ERROR Exception Caught while fetching Recipies: {0}", ex.Message);
+            }
+            return Recipes;
+        }
+
+        /// <summary>
+        /// Adds new recipe to the database
+        /// </summary>
+        /// <param name="recipe">Recipe to be added</param>
+        /// <param name="ingredients">List of ingredients in recipe</param>
+        /// <returns>URI of new Recipe</returns>
+        public Task<Uri> CreateRecipeAsync(Recipe recipe, List<Ingredient> ingredients)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Recipe> UpdateRecipeAsync(Recipe recipe, List<Ingredient> ingredients)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Retrieves Recipe contents
+        /// </summary>
+        /// <returns>List of contents in recipe</returns>
+        public async Task<List<RecipeContent>> GetRecipeContentsAsync()
+        {
+            var uri = new Uri(string.Format(Constraints.RestUrl + "Contents/"));
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    RecipeContents = JsonConvert.DeserializeObject<List<RecipeContent>>(content);
+                    Console.WriteLine(@"              SUCCESS fetching content");
+
+                }
+                else
+                {
+                    Console.WriteLine(@"               ERROR while fetching content: {0}", response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(@"				ERROR Exception Caught while fetching content: {0}", ex.Message);
+            }
+            return RecipeContents;
+        }
+=======
+>>>>>>> master
     }
 }

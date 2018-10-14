@@ -3,18 +3,25 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Diagnostics;
 using RPGFitness.Data;
+<<<<<<< HEAD
+=======
 using RPGFitness.Views;
+>>>>>>> master
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace RPGFitness
 {
     public partial class App : Application
     {
+<<<<<<< HEAD
+        //public static Ingredient Ingredient { get; private set; }
+=======
         
         public static ItemManager Manager { get; private set; }
 
         private ContentPage mainPage;
 
+>>>>>>> master
 
         public App()
         {
@@ -28,6 +35,11 @@ namespace RPGFitness
             //Assign a navigation object to the pageNavigationManager
             PageNavigationManager.Instance.Navigation = MainPage.Navigation;
 
+<<<<<<< HEAD
+            MainPage = new MainPage();     
+
+=======
+>>>>>>> master
         }
 
         protected override void OnStart()

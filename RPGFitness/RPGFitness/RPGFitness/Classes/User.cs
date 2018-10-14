@@ -5,7 +5,11 @@ using System.Text;
 
 namespace RPGFitness
 {
+<<<<<<< HEAD
+    public class User
+=======
     public class User : BaseClass
+>>>>>>> master
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
@@ -18,18 +22,23 @@ namespace RPGFitness
         public Nullable<int> TargetDailySteps { get; set; }
         public Nullable<int> CurrentSteps { get; set; }
 
+<<<<<<< HEAD
+=======
         
 
         public User() {
             OnPropertyChanged();
         }
 
+>>>>>>> master
         public User(int id, string name, string password, string email)
         {
             UserID = id;
             UserName = name;
             UserPassword = password;
             UserEmail = email;
+<<<<<<< HEAD
+=======
             
         }
 
@@ -39,6 +48,7 @@ namespace RPGFitness
             UserPassword = password;
             UserEmail = email;
             
+>>>>>>> master
         }
 
         public uint CalculateCaloriesLeft()
