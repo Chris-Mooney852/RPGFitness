@@ -12,8 +12,12 @@ namespace RPGFitness.Data
     {
         HttpClient client;
 
+<<<<<<< HEAD
         public List<Recipe> Recipes { get; set; }
         public List<RecipeContent> RecipeContents { get; set; }
+=======
+
+>>>>>>> master
         public List<Ingredient> Ingredients { get; set; }
         public User User { get; set; }
 
@@ -43,17 +47,29 @@ namespace RPGFitness.Data
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     Ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(content);
+<<<<<<< HEAD
                     Console.WriteLine(@"              SUCCESS fetching ingredients");
+=======
+                    Console.WriteLine(@"              SUCCESS fetching items");
+>>>>>>> master
 
                 }
                 else
                 {
+<<<<<<< HEAD
                     Console.WriteLine(@"               ERROR while fetching ingredients: {0}", response.StatusCode);
+=======
+                    Console.WriteLine(@"               ERROR while fetching items: {0}", response.StatusCode);
+>>>>>>> master
                 }
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 Console.WriteLine(@"				ERROR Exception Caught while fetching ingredients: {0}", ex.Message);
+=======
+                Console.WriteLine(@"				ERROR Exception Caught while fetching items: {0}", ex.Message);
+>>>>>>> master
             }
             return Ingredients;
 
@@ -94,7 +110,11 @@ namespace RPGFitness.Data
             }
             catch (Exception e)
             {
+<<<<<<< HEAD
                 Console.WriteLine(@"				ERROR Exception Caught while creating ingredients: {0}", e.Message);
+=======
+                Console.WriteLine(@"				ERROR Exception Caught while creating items: {0}", e.Message);
+>>>>>>> master
             }
 
             return response.Headers.Location;
@@ -129,7 +149,11 @@ namespace RPGFitness.Data
             }
             catch (Exception e)
             {
+<<<<<<< HEAD
                 Console.WriteLine(@"				ERROR Exception Caught while updating ingredients: {0}", e.Message);
+=======
+                Console.WriteLine(@"				ERROR Exception Caught while updating items: {0}", e.Message);
+>>>>>>> master
             }
 
             // Deserialize the updated product from the response body.
@@ -163,7 +187,11 @@ namespace RPGFitness.Data
             }
             catch (Exception e)
             {
+<<<<<<< HEAD
                 Console.WriteLine(@"				ERROR Exception Caught while deleting ingredients: {0}", e.Message);
+=======
+                Console.WriteLine(@"				ERROR Exception Caught while deleting item: {0}", e.Message);
+>>>>>>> master
             }
             return response;
         }
@@ -273,6 +301,7 @@ namespace RPGFitness.Data
             user = await response.Content.ReadAsAsync<User>();
             return user;
         }
+<<<<<<< HEAD
 
         /// <summary>
         /// Retrieves list of recipes from the database
@@ -349,5 +378,7 @@ namespace RPGFitness.Data
             }
             return RecipeContents;
         }
+=======
+>>>>>>> master
     }
 }
