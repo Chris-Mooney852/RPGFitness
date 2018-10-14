@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace RPGFitness.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RecipePage : ContentPage
+	public partial class LoginPage : ContentPage
 	{
-		public RecipePage ()
+		public LoginPage ()
 		{
 			InitializeComponent ();
 		}

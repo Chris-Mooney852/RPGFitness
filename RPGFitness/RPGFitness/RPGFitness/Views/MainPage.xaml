@@ -6,24 +6,28 @@
              x:Class="RPGFitness.MainPage">
 
     <TabbedPage.Children>
+
         <NavigationPage Title="Home">
             <x:Arguments>
                 <views:HomePage/>
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Recipes">
+        <NavigationPage Title="Exercise">
             <x:Arguments>
-                <views:RecipePage/>
+                <views:Exercise/>
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Exercise">
+        <NavigationPage Title="Meals">
             <x:Arguments>
-                <views:ExercisePage/>
+                <views:Meals/>
             </x:Arguments>
         </NavigationPage>
-        
+
+
+
+
     </TabbedPage.Children>
 
 </TabbedPage>
