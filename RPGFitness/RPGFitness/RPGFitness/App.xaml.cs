@@ -16,6 +16,10 @@ namespace RPGFitness
 
         private ContentPage mainPage;
 
+        public static PageNavigationManager navManager { get; set; }
+
+        public static ViewModel viewModel { get; set; }
+
         //public List<User> allUsers { get; set; }
 
 

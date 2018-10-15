@@ -14,29 +14,39 @@ namespace RPGFitness.Views
 	{
         public List<User> allUsers;
 
-		public LoginPage ()
+        public static Data.PageNavigationManager navManager { get; set; }
+
+        public LoginPage ()
 		{
 			InitializeComponent ();
-            
             
             
         }
 
         public async void OnLoginClicked(object sender, EventArgs e)
         {
-            var names = await App.Manager.ReturnAllUsersAsync();
-            App.Manager.currentUsers = names;
+            //var names = await App.Manager.ReturnAllUsersAsync();
+            //App.Manager.currentUsers = names;
 
+            //Create a list of all the users in the database
             List<User> allUsers = await App.Manager.ReturnAllUsersAsync();
+
+            navManager = Data.PageNavigationManager.Instance;
+            
 
             bool loginSuccess = false;
 
+            //Look at each user in the database and determin if the username and password match
+           
             foreach (User user in allUsers)
             {
                 if ( user.UserName == NameEntry.Text && user.UserPassword == PasswordEntry.Text)
                 {
-                    //await Navigation.PushAsync(new MainPage());
+                    
                     loginSuccess = true;
+                    
+                    //Set the apps current user to the user that matches
+                    App.Manager.currentUser = user;
                     break;
                 }
                 else
@@ -46,7 +56,8 @@ namespace RPGFitness.Views
             }
             if (loginSuccess == true)
             {
-                await Navigation.PushAsync(new MainPage());
+
+                navManager.ShowMainPage();
             }
             else
             {
