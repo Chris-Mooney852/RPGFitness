@@ -33,7 +33,6 @@ namespace RPGFitness.Views
 
             navManager = Data.PageNavigationManager.Instance;
             
-
             bool loginSuccess = false;
 
             //Look at each user in the database and determin if the username and password match
@@ -44,9 +43,11 @@ namespace RPGFitness.Views
                 {
                     
                     loginSuccess = true;
-                    
+
                     //Set the apps current user to the user that matches
+                    Console.WriteLine("**************************before assignment");
                     App.Manager.currentUser = user;
+                    Console.WriteLine("**************************after assignment");
                     break;
                 }
                 else
