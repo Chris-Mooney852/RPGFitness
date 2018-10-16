@@ -14,7 +14,7 @@ namespace RPGFitness.Data
         Task<Ingredient> UpdateIngredientAsync(Ingredient ingredient);
         Task<HttpResponseMessage> DeleteIngredientAsync(Ingredient ingredient);
 
-        Task<User> GetUserAsync(int id);
+        Task<User> GetUserAsync(string name);
         Task<Uri> CreateUserAsync(User user);
         Task<User> UpdateUserAsync(User user);
 

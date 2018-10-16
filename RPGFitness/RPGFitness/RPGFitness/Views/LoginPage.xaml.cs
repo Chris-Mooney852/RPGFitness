@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using RPGFitness.Data;
 
 namespace RPGFitness.Views
 {
@@ -14,8 +15,8 @@ namespace RPGFitness.Views
 	{
 		public LoginPage ()
 		{
-			InitializeComponent ();
-		}
+			InitializeComponent ();          
 
+		}
     }
 }

@@ -21,7 +21,7 @@ namespace RPGFitness.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            MealList.ItemsSource = await App.Manager.ReturnIngredientAsync();
+            MealList.ItemsSource = await App.Manager.ReturnRecipesAsync();
         }
 	}
 }

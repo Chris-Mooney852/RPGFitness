@@ -188,9 +188,9 @@ namespace RPGFitness.Data
         /// </summary>
         /// <param name="id">User id to get</param>
         /// <returns>User</returns>
-        public async Task<User> GetUserAsync(int id)
+        public async Task<User> GetUserAsync(string name)
         {
-            var uri = new Uri(string.Format(Constraints.RestUrl + "User/" + id));
+            var uri = new Uri(string.Format(Constraints.RestUrl + "User?name=" + name));
             try
             {
                 var response = await client.GetAsync(uri);
@@ -218,9 +218,9 @@ namespace RPGFitness.Data
         /// Awaits for GetUserAsync to complete then prints the result to console
         /// </summary>
         /// <param name="id">user ID to retrieve</param>
-        public async void showUser(int id)
+        public async void showUser(string name)
         {
-            await GetUserAsync(id);
+            await GetUserAsync(name);
             Console.WriteLine(User.ToString());
         }
 
