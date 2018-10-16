@@ -36,22 +36,34 @@ namespace RPGFitness.Views
 
             navManager = Data.PageNavigationManager.Instance;
 
-            
-
-            if ( currentUser.UserName == NameEntry.Text && currentUser.UserPassword == PasswordEntry.Text)
+            if (currentUser == null)
             {
-                App.Manager.currentUser = currentUser;
-          
-                navManager.ShowMainPage();
-              
-
+                SuccessLabel.Text = "Username does not exist";
             }
             else
             {
-                SuccessLabel.Text = "Invalid Username or Password!";
+                navManager = Data.PageNavigationManager.Instance;
+
+
+
+                if (currentUser.UserName == NameEntry.Text && currentUser.UserPassword == PasswordEntry.Text)
+                {
+                    App.Manager.currentUser = currentUser;
+
+                    navManager.ShowMainPage();
+
+
+                }
+                else
+                {
+                    SuccessLabel.Text = "Invalid Username or Password!";
+                }
             }
 
-           
+
+
+
+
         }
     }
 }
