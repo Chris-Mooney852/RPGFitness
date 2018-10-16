@@ -8,8 +8,7 @@ namespace RPGFitness.Data
 {
     public interface IRestService
     {
-        Task<List<Ingredient>> GetIngredientAsync();
-        void ShowIngredients();
+        Task<Ingredient> GetIngredientAsync(int recipeId);
         Task<Uri> CreateIngredientAsync(Ingredient ingredient);
         Task<Ingredient> UpdateIngredientAsync(Ingredient ingredient);
         Task<HttpResponseMessage> DeleteIngredientAsync(Ingredient ingredient);
@@ -22,6 +21,6 @@ namespace RPGFitness.Data
         Task<Uri> CreateRecipeAsync(Recipe recipe, List<Ingredient> ingredients);
         Task<Recipe> UpdateRecipeAsync(Recipe recipe, List<Ingredient> ingredients );
 
-        Task<List<RecipeContent>> GetRecipeContentsAsync();
+        Task<List<RecipeContent>> GetRecipeContentsAsync(int recipeId);
     }
 }

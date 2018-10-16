@@ -13,8 +13,10 @@ namespace RPGFitness.Data
 
 
         public List<Ingredient> currentIngredients { get; set; }
+        public List<Recipe> currentRecipes { get; set;}
         public User currentUser { get; set; }
         public List<User> currentUsers { get; set; }
+        public Recipe mealItem { get; set; }
 
 
 
@@ -24,9 +26,14 @@ namespace RPGFitness.Data
             restservice = service;
         }
 
-        public Task<List<Ingredient>> ReturnIngredientAsync()
+        public Task<Ingredient> ReturnIngredientAsync(int recipeId)
         {
-            return restservice.GetIngredientAsync();
+            return restservice.GetIngredientAsync(recipeId);
+        }
+
+        public Task<List<Recipe>> ReturnRecipies()
+        {
+            return restservice.GetRecipesAsync();
         }
 
         public Task<User> ReturnUserAsync(string user)
@@ -37,6 +44,21 @@ namespace RPGFitness.Data
         public Task SaveUserAsync(User user)
         {
             return restservice.CreateUserAsync(user);
+        }
+
+        public async Task<List<Ingredient>> ReturnRecipeIngredients(Recipe recipe)
+        {
+            List<RecipeContent> currentContent = await restservice.GetRecipeContentsAsync(recipe.RecipeId);
+            Ingredient newIngredient = new Ingredient();
+            currentIngredients = new List<Ingredient>();
+
+            foreach (RecipeContent ingredientContext in currentContent)
+            {
+                newIngredient = await ReturnIngredientAsync(ingredientContext.IngredientId);
+                Console.WriteLine(newIngredient.ToString());
+                currentIngredients.Add(newIngredient);
+            }
+            return currentIngredients;
         }
     }
 }

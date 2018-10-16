@@ -13,6 +13,11 @@ namespace RPGFitness
         public string Name { get; set; }
         public int Calories { get; set; }
 
+        public Ingredient()
+        {
+
+        }
+
         /// <summary>
         /// Creates an Ingredient
         /// </summary>
