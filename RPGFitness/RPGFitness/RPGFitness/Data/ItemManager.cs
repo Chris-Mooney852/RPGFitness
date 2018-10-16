@@ -38,10 +38,5 @@ namespace RPGFitness.Data
         {
             return restservice.CreateUserAsync(user);
         }
-
-        public Task<List<User>> ReturnAllUsersAsync()
-        {
-            return restservice.GetUserListAsync();
-        }
     }
 }

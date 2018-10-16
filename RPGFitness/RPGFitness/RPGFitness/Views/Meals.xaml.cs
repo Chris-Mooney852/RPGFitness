@@ -18,16 +18,16 @@ namespace RPGFitness.Views
 
 		}
 
-        protected async override void OnAppearing()
-        {
-            base.OnAppearing();
-            MealList.ItemsSource = await App.Manager.ReturnIngredientAsync();
-            var items = await App.Manager.ReturnIngredientAsync();
-            App.Manager.currentIngredients = items;
+        //protected async override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    MealList.ItemsSource = await App.Manager.ReturnIngredientAsync();
+        //    var items = await App.Manager.ReturnIngredientAsync();
+        //    App.Manager.currentIngredients = items;
 
-            var names = await App.Manager.ReturnAllUsersAsync();
-            App.Manager.currentUsers = names;
+        //    //var names = await App.Manager.ReturnAllUsersAsync();
+        //    App.Manager.currentUsers = names;
 
-        }
+        //}
 	}
 }

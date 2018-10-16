@@ -24,13 +24,13 @@ namespace RPGFitness.Views
 
         }
 
-        public async void OnLoginClicked(object sender, EventArgs e)
+        public void OnLoginClicked(object sender, EventArgs e)
         {
             //var names = await App.Manager.ReturnAllUsersAsync();
             //App.Manager.currentUsers = names;
 
             //Create a list of all the users in the database
-            List<User> allUsers = await App.Manager.ReturnAllUsersAsync();
+            //List<User> allUsers = await App.Manager.ReturnAllUsersAsync();
 
             navManager = Data.PageNavigationManager.Instance;
 
@@ -66,7 +66,5 @@ namespace RPGFitness.Views
                 SuccessLabel.Text = "Invalid Username or Password!";
             }
         }
-
-		}
     }
 }
