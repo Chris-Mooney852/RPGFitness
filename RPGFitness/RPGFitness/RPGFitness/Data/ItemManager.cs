@@ -29,9 +29,9 @@ namespace RPGFitness.Data
             return restservice.GetIngredientAsync();
         }
 
-        public Task<User> ReturnUserAsync()
+        public Task<User> ReturnUserAsync(string user)
         {
-            return restservice.GetUserAsync("Eric");
+            return restservice.GetUserAsync(user);
         }
 
         public Task SaveUserAsync(User user)

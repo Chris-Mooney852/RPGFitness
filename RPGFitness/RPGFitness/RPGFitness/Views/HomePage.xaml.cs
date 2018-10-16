@@ -32,7 +32,7 @@ namespace RPGFitness.Views
          
 		}
 
-        public async void OnEatClicked(object sender, EventArgs e)
+        public void OnEatClicked(object sender, EventArgs e)
         {
              App.Manager.currentUser.Health -= 0.1;
             Console.WriteLine("**************** current user health: {0}", App.Manager.currentUser.Health);

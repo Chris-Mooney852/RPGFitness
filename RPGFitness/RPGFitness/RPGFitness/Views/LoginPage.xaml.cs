@@ -13,7 +13,7 @@ namespace RPGFitness.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
-        public List<User> allUsers;
+        public User currentUser;
 
         public static Data.PageNavigationManager navManager { get; set; }
 
@@ -24,47 +24,34 @@ namespace RPGFitness.Views
 
         }
 
-        public void OnLoginClicked(object sender, EventArgs e)
+        public  async void OnLoginClicked(object sender, EventArgs e)
         {
             //var names = await App.Manager.ReturnAllUsersAsync();
             //App.Manager.currentUsers = names;
 
-            //Create a list of all the users in the database
-            //List<User> allUsers = await App.Manager.ReturnAllUsersAsync();
+
+            currentUser = await App.Manager.ReturnUserAsync(NameEntry.Text);
+
+          
 
             navManager = Data.PageNavigationManager.Instance;
 
-            bool loginSuccess = false;
+            
 
-            //Look at each user in the database and determin if the username and password match
-
-            foreach (User user in allUsers)
+            if ( currentUser.UserName == NameEntry.Text && currentUser.UserPassword == PasswordEntry.Text)
             {
-                if ( user.UserName == NameEntry.Text && user.UserPassword == PasswordEntry.Text)
-                {
-
-                    loginSuccess = true;
-
-                    //Set the apps current user to the user that matches
-                    Console.WriteLine("**************************before assignment");
-                    App.Manager.currentUser = user;
-                    Console.WriteLine("**************************after assignment");
-                    break;
-                }
-                else
-                {
-                    loginSuccess = false;
-                }
-            }
-            if (loginSuccess == true)
-            {
-
+                App.Manager.currentUser = currentUser;
+          
                 navManager.ShowMainPage();
+              
+
             }
             else
             {
                 SuccessLabel.Text = "Invalid Username or Password!";
             }
+
+           
         }
     }
 }
