@@ -15,7 +15,7 @@ namespace RPGFitness.Views
 	{
         public User currentUser;
 
-        public static Data.PageNavigationManager navManager { get; set; }
+        public static PageNavigationManager navManager { get; set; }
 
         public LoginPage ()
 		{

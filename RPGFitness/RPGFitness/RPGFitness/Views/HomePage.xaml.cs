@@ -23,7 +23,7 @@ namespace RPGFitness.Views
             NameLabel.BindingContext = App.Manager.currentUser;
 
             //Assign the remaing user health to the users health and convert to a percentage.
-            App.Manager.currentUser.Health = ((double)App.Manager.currentUser.MaxDailyIntake - 
+            App.Manager.currentUser._Health = ((double)App.Manager.currentUser.MaxDailyIntake - 
                 (double)App.Manager.currentUser.ConsumedCalories) / (double)App.Manager.currentUser.MaxDailyIntake;
 
             //Bind the health bar to the current user.
@@ -34,8 +34,8 @@ namespace RPGFitness.Views
 
         public void OnEatClicked(object sender, EventArgs e)
         {
-             App.Manager.currentUser.Health -= 0.1;
-            Console.WriteLine("**************** current user health: {0}", App.Manager.currentUser.Health);
+             App.Manager.currentUser._Health -= 0.1;
+            Console.WriteLine("**************** current user health: {0}", App.Manager.currentUser._Health);
            
         }
 	}

@@ -36,6 +36,8 @@ namespace RPGFitness
 
             //Assign a navigation object to the pageNavigationManager
             PageNavigationManager.Instance.Navigation = MainPage.Navigation;
+
+           
         }
 
         protected override void OnStart()
