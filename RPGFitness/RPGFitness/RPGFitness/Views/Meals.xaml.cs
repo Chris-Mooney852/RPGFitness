@@ -15,7 +15,7 @@ namespace RPGFitness.Views
 		public Meals ()
 		{
 			InitializeComponent ();
-           
+
 		}
 
         protected async override void OnAppearing()

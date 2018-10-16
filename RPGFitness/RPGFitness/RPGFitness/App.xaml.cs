@@ -11,7 +11,6 @@ namespace RPGFitness
 {
     public partial class App : Application
     {
-        
         public static ItemManager Manager { get; private set; }
 
         private ContentPage mainPage;
@@ -29,7 +28,7 @@ namespace RPGFitness
             Manager = new ItemManager(new RestService());
 
             //allUsers = Manager.currentUsers;
-            
+
 
             //Make the app a navigation based app
             mainPage = new LoginPage();
@@ -37,9 +36,6 @@ namespace RPGFitness
 
             //Assign a navigation object to the pageNavigationManager
             PageNavigationManager.Instance.Navigation = MainPage.Navigation;
-
-            
-
         }
 
         protected override void OnStart()

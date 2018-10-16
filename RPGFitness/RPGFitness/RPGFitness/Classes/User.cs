@@ -20,9 +20,9 @@ namespace RPGFitness
         public Nullable<int> CurrentSteps { get; set; }
         public double Health { get; set; }
 
-        
 
-        
+
+
 
         public User() {
             //OnPropertyChanged();
@@ -34,7 +34,6 @@ namespace RPGFitness
             UserName = name;
             UserPassword = password;
             UserEmail = email;
-            
         }
 
         public User (string name, string password, string email)
@@ -42,7 +41,6 @@ namespace RPGFitness
             UserName = name;
             UserPassword = password;
             UserEmail = email;
-            
         }
 
         //public double _Health

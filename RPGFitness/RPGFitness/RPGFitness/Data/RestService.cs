@@ -12,7 +12,8 @@ namespace RPGFitness.Data
     {
         HttpClient client;
 
-
+        public List<Recipe> Recipes { get; set; }
+        public List<RecipeContent> RecipeContents { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         public User User { get; set; }
         public List<User> Users { get; set; }
@@ -43,16 +44,19 @@ namespace RPGFitness.Data
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     Ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(content);
+                    Console.WriteLine(@"              SUCCESS fetching ingredients");
                     Console.WriteLine(@"              SUCCESS fetching items");
 
                 }
                 else
                 {
+                    Console.WriteLine(@"               ERROR while fetching ingredients: {0}", response.StatusCode);
                     Console.WriteLine(@"               ERROR while fetching items: {0}", response.StatusCode);
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine(@"				ERROR Exception Caught while fetching ingredients: {0}", ex.Message);
                 Console.WriteLine(@"				ERROR Exception Caught while fetching items: {0}", ex.Message);
             }
             return Ingredients;
@@ -94,6 +98,7 @@ namespace RPGFitness.Data
             }
             catch (Exception e)
             {
+                Console.WriteLine(@"				ERROR Exception Caught while creating ingredients: {0}", e.Message);
                 Console.WriteLine(@"				ERROR Exception Caught while creating items: {0}", e.Message);
             }
 
@@ -129,6 +134,7 @@ namespace RPGFitness.Data
             }
             catch (Exception e)
             {
+                Console.WriteLine(@"				ERROR Exception Caught while updating ingredients: {0}", e.Message);
                 Console.WriteLine(@"				ERROR Exception Caught while updating items: {0}", e.Message);
             }
 
@@ -163,6 +169,7 @@ namespace RPGFitness.Data
             }
             catch (Exception e)
             {
+                Console.WriteLine(@"				ERROR Exception Caught while deleting ingredients: {0}", e.Message);
                 Console.WriteLine(@"				ERROR Exception Caught while deleting item: {0}", e.Message);
             }
             return response;
@@ -182,9 +189,9 @@ namespace RPGFitness.Data
         /// </summary>
         /// <param name="id">User id to get</param>
         /// <returns>User</returns>
-        public async Task<User> GetUserAsync(int id)
+        public async Task<User> GetUserAsync(string name)
         {
-            var uri = new Uri(string.Format(Constraints.RestUrl + "User/" + id));
+            var uri = new Uri(string.Format(Constraints.RestUrl + "User?name=" + name));
             try
             {
                 var response = await client.GetAsync(uri);
@@ -212,9 +219,9 @@ namespace RPGFitness.Data
         /// Awaits for GetUserAsync to complete then prints the result to console
         /// </summary>
         /// <param name="id">user ID to retrieve</param>
-        public async void showUser(int id)
+        public async void showUser(string name)
         {
-            await GetUserAsync(id);
+            await GetUserAsync(name);
             Console.WriteLine(User.ToString());
         }
 
@@ -274,33 +281,80 @@ namespace RPGFitness.Data
             return user;
         }
 
-        //Test function to see if we can return a list of user objects for login purposes
-        public async Task<List<User>> GetUserListAsync()
+        /// <summary>
+        /// Retrieves list of recipes from the database
+        /// </summary>
+        /// <returns>List of Recipies</returns>
+        public async Task<List<Recipe>> GetRecipesAsync()
         {
-            Users = new List<User>();
-            var uri = new Uri(string.Format(Constraints.RestUrl + "User/"));
-
+            var uri = new Uri(string.Format(Constraints.RestUrl + "Recipe/"));
             try
             {
                 var response = await client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
+
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Users = JsonConvert.DeserializeObject<List<User>>(content);
-                    Console.WriteLine(@"              SUCCESS fetching Users");
+                    Recipes = JsonConvert.DeserializeObject<List<Recipe>>(content);
+                    Console.WriteLine(@"              SUCCESS fetching Recipies");
 
                 }
                 else
                 {
-                    Console.WriteLine(@"               ERROR while fetching Users: {0}", response.StatusCode);
+                    Console.WriteLine(@"               ERROR while fetching Recipies: {0}", response.StatusCode);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(@"				ERROR Exception Caught while fetching Users: {0}", ex.Message);
+                Console.WriteLine(@"				ERROR Exception Caught while fetching Recipies: {0}", ex.Message);
             }
-            return Users;
+            return Recipes;
+        }
 
+        /// <summary>
+        /// Adds new recipe to the database
+        /// </summary>
+        /// <param name="recipe">Recipe to be added</param>
+        /// <param name="ingredients">List of ingredients in recipe</param>
+        /// <returns>URI of new Recipe</returns>
+        public Task<Uri> CreateRecipeAsync(Recipe recipe, List<Ingredient> ingredients)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Recipe> UpdateRecipeAsync(Recipe recipe, List<Ingredient> ingredients)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Retrieves Recipe contents
+        /// </summary>
+        /// <returns>List of contents in recipe</returns>
+        public async Task<List<RecipeContent>> GetRecipeContentsAsync()
+        {
+            var uri = new Uri(string.Format(Constraints.RestUrl + "Contents/"));
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    RecipeContents = JsonConvert.DeserializeObject<List<RecipeContent>>(content);
+                    Console.WriteLine(@"              SUCCESS fetching content");
+
+                }
+                else
+                {
+                    Console.WriteLine(@"               ERROR while fetching content: {0}", response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(@"				ERROR Exception Caught while fetching content: {0}", ex.Message);
+            }
+            return RecipeContents;
         }
     }
 }

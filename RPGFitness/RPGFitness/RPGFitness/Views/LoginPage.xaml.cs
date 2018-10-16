@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using RPGFitness.Data;
 
 namespace RPGFitness.Views
 {
@@ -19,8 +20,8 @@ namespace RPGFitness.Views
         public LoginPage ()
 		{
 			InitializeComponent ();
-            
-            
+
+
         }
 
         public async void OnLoginClicked(object sender, EventArgs e)
@@ -32,16 +33,16 @@ namespace RPGFitness.Views
             List<User> allUsers = await App.Manager.ReturnAllUsersAsync();
 
             navManager = Data.PageNavigationManager.Instance;
-            
+
             bool loginSuccess = false;
 
             //Look at each user in the database and determin if the username and password match
-           
+
             foreach (User user in allUsers)
             {
                 if ( user.UserName == NameEntry.Text && user.UserPassword == PasswordEntry.Text)
                 {
-                    
+
                     loginSuccess = true;
 
                     //Set the apps current user to the user that matches
@@ -66,5 +67,6 @@ namespace RPGFitness.Views
             }
         }
 
+		}
     }
 }
