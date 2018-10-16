@@ -20,8 +20,17 @@ namespace RPGFitness.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            RecipeLabel.BindingContext = App.Manager.mealItem;
             IngredientsList.ItemsSource = await App.Manager.ReturnRecipeIngredients(App.Manager.mealItem);
 
+        }
+
+        public void OnIntakeClicked(object sender, EventArgs e)
+        {
+            App.Manager.currentUser._Health -= App.Manager.CalculateTotalCalories();
+            Console.WriteLine("**************** current user health: {0}", App.Manager.currentUser._Health);
+            App.Manager.TotalCalories = 0;
+            App.Manager.UpdateUserAsync();
         }
     }
 }

@@ -4,9 +4,10 @@
              x:Class="RPGFitness.Views.RecipePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="{Binding RecipeName}"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" 
+                   x:Name="RecipeLabel"/>
 
             <ListView x:Name="IngredientsList" Margin="20">
                 <ListView.ItemTemplate>
@@ -19,6 +20,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <Button Text="Add to Daily Intake" FontSize="Small"
+                    Clicked="OnIntakeClicked"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
