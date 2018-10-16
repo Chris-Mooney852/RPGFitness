@@ -42,8 +42,11 @@ namespace RPGFitness.Views
 
             if ( currentUser.UserName == NameEntry.Text && currentUser.UserPassword == PasswordEntry.Text)
             {
+                App.Manager.currentUser = currentUser;
+          
                 navManager.ShowMainPage();
                 Console.WriteLine("*******************************loged in");
+
             }
             else
             {

@@ -30,6 +30,7 @@
                     Command="{Binding SignUpPageClickCommand}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
