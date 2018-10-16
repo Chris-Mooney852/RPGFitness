@@ -5,9 +5,15 @@
     <ContentPage.Content>
         <StackLayout>
             <Label x:Name="WelcomeLabel"
-                Text="Welcome"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                Text="Welcome" 
+                HorizontalOptions="Center" />
+            <Label x:Name="NameLabel" Text="{Binding UserName}"
+                HorizontalOptions="Center"/>
+            <ProgressBar x:Name="UserHealth" Progress="{Binding Health}"/>
+
+
+            <Button Text="Eat" Clicked="OnEatClicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

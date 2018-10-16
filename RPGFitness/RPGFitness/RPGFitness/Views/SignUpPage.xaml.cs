@@ -15,6 +15,7 @@ namespace RPGFitness.Views
 		public SignUpPage ()
 		{
 			InitializeComponent ();
+            
 
             
         }
@@ -30,7 +31,11 @@ namespace RPGFitness.Views
             newUser.UserPassword = PasswordEntry.Text;
             newUser.UserEmail = EmailEntry.Text;
 
+            
+
             await App.Manager.SaveUserAsync(newUser);
+
+            
             
         }
 	}
