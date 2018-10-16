@@ -14,7 +14,7 @@ namespace RPGFitness.Data
 
         public List<Recipe> Recipes { get; set; }
         public List<RecipeContent> RecipeContents { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
+        public Ingredient Ingredients { get; set; }
         public User User { get; set; }
         public List<User> Users { get; set; }
 
@@ -32,10 +32,9 @@ namespace RPGFitness.Data
         /// Retrieves the list of all ingredients from the SQL database using the API
         /// </summary>
         /// <returns>List of Ingredients</returns>
-        public async Task<List<Ingredient>> GetIngredientAsync()
+        public async Task<Ingredient> GetIngredientAsync(int recipeID)
         {
-            Ingredients = new List<Ingredient>();
-            var uri = new Uri(string.Format(Constraints.RestUrl + "Ingredient/"));
+            var uri = new Uri(string.Format(Constraints.RestUrl + "Ingredient/" + recipeID));
 
             try
             {
@@ -43,38 +42,22 @@ namespace RPGFitness.Data
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Ingredients = JsonConvert.DeserializeObject<List<Ingredient>>(content);
+                    Ingredients = JsonConvert.DeserializeObject<Ingredient>(content);
                     Console.WriteLine(@"              SUCCESS fetching ingredients");
-                    Console.WriteLine(@"              SUCCESS fetching items");
-
                 }
                 else
                 {
                     Console.WriteLine(@"               ERROR while fetching ingredients: {0}", response.StatusCode);
-                    Console.WriteLine(@"               ERROR while fetching items: {0}", response.StatusCode);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(@"				ERROR Exception Caught while fetching ingredients: {0}", ex.Message);
-                Console.WriteLine(@"				ERROR Exception Caught while fetching items: {0}", ex.Message);
             }
             return Ingredients;
 
         }
 
-        /// <summary>
-        /// Awaits for GetIngredientsAsync to finish then displays the list of ingredients
-        /// </summary>
-        public async void ShowIngredients()
-        {
-            await GetIngredientAsync();
-
-            foreach (Ingredient ingredient in Ingredients)
-            {
-                Console.WriteLine(ingredient.ToString() + "\n");
-            }
-        }
 
         /// <summary>
         /// Adds the provided ingredient to the database
@@ -331,9 +314,9 @@ namespace RPGFitness.Data
         /// Retrieves Recipe contents
         /// </summary>
         /// <returns>List of contents in recipe</returns>
-        public async Task<List<RecipeContent>> GetRecipeContentsAsync()
+        public async Task<List<RecipeContent>> GetRecipeContentsAsync(int recipeId)
         {
-            var uri = new Uri(string.Format(Constraints.RestUrl + "Contents/"));
+            var uri = new Uri(string.Format(Constraints.RestUrl + "Contents/" + recipeId));
             try
             {
                 var response = await client.GetAsync(uri);

@@ -12,22 +12,25 @@ namespace RPGFitness.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Meals : ContentPage
 	{
+        public static Data.PageNavigationManager navigationManager { get; set; }
 		public Meals ()
 		{
 			InitializeComponent ();
 
 		}
 
-        //protected async override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //    MealList.ItemsSource = await App.Manager.ReturnIngredientAsync();
-        //    var items = await App.Manager.ReturnIngredientAsync();
-        //    App.Manager.currentIngredients = items;
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            MealList.ItemsSource = await App.Manager.ReturnRecipies();
 
-        //    //var names = await App.Manager.ReturnAllUsersAsync();
-        //    App.Manager.currentUsers = names;
+        }
 
-        //}
-	}
+        void OnMealSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            navigationManager = Data.PageNavigationManager.Instance;
+            App.Manager.mealItem = e.SelectedItem as Recipe;
+            navigationManager.ShowRecipeContentsPage();
+        }
+    }
 }
