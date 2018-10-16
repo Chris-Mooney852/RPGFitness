@@ -36,6 +36,7 @@ namespace RPGFitness.Views
         {
              App.Manager.currentUser.Health -= 0.1;
             Console.WriteLine("**************** current user health: {0}", App.Manager.currentUser.Health);
+           
         }
 	}
 }
