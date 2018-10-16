@@ -17,6 +17,7 @@ namespace RPGFitness.Data
         public User currentUser { get; set; }
         public List<User> currentUsers { get; set; }
         public Recipe mealItem { get; set; }
+        public int TotalCalories { get; set; }
 
 
 
@@ -46,6 +47,11 @@ namespace RPGFitness.Data
             return restservice.CreateUserAsync(user);
         }
 
+        public void UpdateUserAsync()
+        {
+            restservice.UpdateUserAsync(currentUser);
+        }
+
         public async Task<List<Ingredient>> ReturnRecipeIngredients(Recipe recipe)
         {
             List<RecipeContent> currentContent = await restservice.GetRecipeContentsAsync(recipe.RecipeId);
@@ -57,8 +63,16 @@ namespace RPGFitness.Data
                 newIngredient = await ReturnIngredientAsync(ingredientContext.IngredientId);
                 Console.WriteLine(newIngredient.ToString());
                 currentIngredients.Add(newIngredient);
+                TotalCalories += newIngredient.Calories;
             }
+            Console.WriteLine(TotalCalories.ToString());
             return currentIngredients;
+        }
+
+        public double CalculateTotalCalories()
+        {
+            currentUser.ConsumedCalories += TotalCalories;
+            return (double)TotalCalories / (double)currentUser.MaxDailyIntake; 
         }
     }
 }
