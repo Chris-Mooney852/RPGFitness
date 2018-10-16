@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RPGFitness.Views"
+             xmlns:local1="clr-namespace:RPGFitness"
              x:Class="RPGFitness.Views.HomePage">
     <ContentPage.Content>
         <StackLayout>
@@ -9,7 +11,8 @@
                 HorizontalOptions="Center" />
             <Label x:Name="NameLabel" Text="{Binding UserName}"
                 HorizontalOptions="Center"/>
-            <ProgressBar x:Name="UserHealth" Progress="{Binding Health}"/>
+            <ProgressBar x:Name="UserHealth" Progress="{Binding _Health}"/>
+
 
 
             <Button Text="Eat" Clicked="OnEatClicked"/>

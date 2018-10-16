@@ -6,7 +6,8 @@ using System.ComponentModel;
 
 namespace RPGFitness
 {
-    public class User : BaseClass
+    public class User : INotifyPropertyChanged
+
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
@@ -18,9 +19,9 @@ namespace RPGFitness
         public Nullable<int> ConsumedCalories { get; set; }
         public Nullable<int> TargetDailySteps { get; set; }
         public Nullable<int> CurrentSteps { get; set; }
-        public double Health { get; set; }
+        private double Health;
 
-
+        public event PropertyChangedEventHandler PropertyChanged;
 
 
 
@@ -43,22 +44,26 @@ namespace RPGFitness
             UserEmail = email;
         }
 
-        //public double _Health
-        //{
+        public double _Health
+        {
 
-            //set
-            //{
-              //  Health = value;
-                //if (PropertyChanged != null)
-                ///{
-                   // PropertyChanged(this, new PropertyChangedEventArgs("_Health"));
-               // }
-           // }
-            //get
-            //{
-             //   return Health;
-           // }
-       // }
+            set
+            {
+                if (Health != value)
+                {
+                    Health = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("_Health"));
+                    }
+                }
+                
+            }
+            get
+            {
+                return Health;
+            }
+        }
 
         public uint CalculateCaloriesLeft()
         {
