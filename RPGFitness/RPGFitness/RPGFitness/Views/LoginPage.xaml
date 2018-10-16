@@ -16,8 +16,8 @@
                    HorizontalOptions="Center"/>
             <Entry x:Name="NameEntry"/>
             <Label Text="Password" FontSize="Small"
-                   HorizontalOptions="Center"/>
-            <Entry x:Name="PasswordEntry"/>
+                   HorizontalOptions="Center" />
+            <Entry x:Name="PasswordEntry" IsPassword="True"/>
 
             <Button Text="Login" FontSize="Small"
                     Clicked="OnLoginClicked"
