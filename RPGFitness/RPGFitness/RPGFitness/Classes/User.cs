@@ -26,7 +26,7 @@ namespace RPGFitness
 
 
         public User() {
-            //OnPropertyChanged();
+            
         }
 
         public User(int id, string name, string password, string email)

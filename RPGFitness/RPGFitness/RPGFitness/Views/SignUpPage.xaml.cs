@@ -30,6 +30,8 @@ namespace RPGFitness.Views
             newUser.UserName = NameEntry.Text;
             newUser.UserPassword = PasswordEntry.Text;
             newUser.UserEmail = EmailEntry.Text;
+            newUser.MaxDailyIntake = 2000;
+            newUser.ConsumedCalories = 0;
 
             
 
