@@ -31,12 +31,5 @@ namespace RPGFitness.Views
 
          
 		}
-
-        public void OnEatClicked(object sender, EventArgs e)
-        {
-             App.Manager.currentUser._Health -= 0.1;
-            Console.WriteLine("**************** current user health: {0}", App.Manager.currentUser._Health);
-           
-        }
 	}
 }

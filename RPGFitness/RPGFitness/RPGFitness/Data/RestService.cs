@@ -17,6 +17,8 @@ namespace RPGFitness.Data
         public Ingredient Ingredients { get; set; }
         public User User { get; set; }
         public List<User> Users { get; set; }
+        public List<Exercise> Exercises { get; set; }
+        public Exercise Exercise { get; set; }
 
         /// <summary>
         /// Initializes the rest service to be used with the API
@@ -339,5 +341,34 @@ namespace RPGFitness.Data
             }
             return RecipeContents;
         }
+
+        public async Task<List<Exercise>> GetExercisesAsync()
+        {
+            var uri = new Uri(string.Format(Constraints.RestUrl + "Exercise/"));
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Exercises = JsonConvert.DeserializeObject<List<Exercise>>(content);
+                    Console.WriteLine(@"              SUCCESS fetching Exercise");
+
+                }
+                else
+                {
+                    Console.WriteLine(@"               ERROR while fetching Exercise: {0}", response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(@"				ERROR Exception Caught while fetching Exercise: {0}", ex.Message);
+            }
+            return Exercises;
+        }
+
     }
+
+
 }

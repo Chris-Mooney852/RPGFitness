@@ -20,8 +20,10 @@ namespace RPGFitness.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            App.Manager.TotalCalories = 0;
             RecipeLabel.BindingContext = App.Manager.mealItem;
             IngredientsList.ItemsSource = await App.Manager.ReturnRecipeIngredients(App.Manager.mealItem);
+            Calories.Text = Convert.ToString(App.Manager.TotalCalories);
 
         }
 
