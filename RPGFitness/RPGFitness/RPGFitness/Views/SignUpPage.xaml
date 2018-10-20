@@ -16,7 +16,11 @@
             <Label Text="Password"/>
             <Entry x:Name="PasswordEntry" Text="{Binding UserPassword}"/>
             <Label Text="Email Address"/>
-            <Entry x:Name="EmailEntry" Text="{Binding UserEmail}"/> 
+            <Entry x:Name="EmailEntry" Text="{Binding UserEmail}"/>
+            <Label Text="Current Weight"/>
+            <Entry x:Name="CurrentWeight" Text="{Binding CurrentWeight}"/>
+            <Label Text="Goal Weight"/>
+            <Entry x:Name="GoalWeight" Text="{Binding GoalWeight}"/>
             <Button Text="Submit" Clicked="OnSubmitClicked"
                     Command="{Binding LoginPageClickCommand}"/>
 

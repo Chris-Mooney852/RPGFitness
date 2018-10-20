@@ -78,7 +78,7 @@ namespace RPGFitness.Data
         {
             currentUser.ConsumedCalories += TotalCalories;
             UpdateUserAsync();
-            return (double)TotalCalories / (double)currentUser.MaxDailyIntake;
+            return (double)TotalCalories / (double)currentUser._MaxDailyIntake;
         }
 
         public Task<List<Exercise>> ReturnExercises()

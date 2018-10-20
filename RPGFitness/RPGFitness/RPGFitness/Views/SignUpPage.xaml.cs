@@ -30,7 +30,8 @@ namespace RPGFitness.Views
             newUser.UserName = NameEntry.Text;
             newUser.UserPassword = PasswordEntry.Text;
             newUser.UserEmail = EmailEntry.Text;
-            newUser.MaxDailyIntake = 2000;
+            newUser.MaxDailyIntake = Convert.ToInt16(CurrentWeight.Text) * 24;
+            newUser.GoalWeight = Convert.ToInt16(GoalWeight.Text);
             newUser.ConsumedCalories = 0;
             newUser.LastLogin = DateTime.Today;
 

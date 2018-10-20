@@ -10,18 +10,20 @@ namespace RPGFitness.Views
     {
         private Data.PageNavigationManager navManager;
 
-        public ICommand SignUpPageClickCommand { protected set; get; }
+        public ICommand SignUPageClickCommand { protected set; get; }
 
         public ICommand MainPageClickCommand { protected set; get; }
 
         public ICommand LoginPageClickCommand { protected set; get; }
+
+        public ICommand ProfilePageCLickCommand { protected set; get; }
 
         
 
         public ViewModel()
         {
             navManager = Data.PageNavigationManager.Instance;
-            SignUpPageClickCommand = new Command(() =>
+            SignUPageClickCommand = new Command(() =>
             {
                 navManager.ShowSignUpPage();
             });
@@ -34,6 +36,11 @@ namespace RPGFitness.Views
             LoginPageClickCommand = new Command(() =>
             {
                 navManager.ShowLoginPage();
+            });
+
+            ProfilePageCLickCommand = new Command(() =>
+            {
+                navManager.ShowProfilePage();
             });
         }
     }

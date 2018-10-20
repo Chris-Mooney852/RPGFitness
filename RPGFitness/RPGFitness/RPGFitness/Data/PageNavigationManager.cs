@@ -54,5 +54,10 @@ namespace RPGFitness.Data
         {
             navigation.PushAsync(new Views.ExerciseDetailPage());
         }
+
+        public void ShowProfilePage()
+        {
+            navigation.PushAsync(new Views.ProfilePage());
+        }
     }
 }
