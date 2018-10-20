@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RPGFitness.Views.ExerciseDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Exercise Details"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="ExerciseName" Text="{Binding ex_Name}"/>
+            <Label x:Name="ExerciseType" Text="{Binding ex_Type}"/>
+            <Label x:Name="CaloriesBurned" Text="{Binding cals_Burned}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

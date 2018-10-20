@@ -37,7 +37,7 @@ namespace RPGFitness.Views
         {
             navigationManager = Data.PageNavigationManager.Instance;
             App.Manager.exerciseItem = e.SelectedItem as Exercise;
-
+            navigationManager.ShowExerciseDetailPage();
         }
     }
 }
