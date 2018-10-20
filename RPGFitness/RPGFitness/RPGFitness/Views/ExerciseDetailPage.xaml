@@ -5,11 +5,21 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Exercise Details"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="ExerciseName" Text="{Binding ex_Name}"/>
-            <Label x:Name="ExerciseType" Text="{Binding ex_Type}"/>
-            <Label x:Name="CaloriesBurned" Text="{Binding cals_Burned}"/>
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand"/>
+            <Grid>
+                <Label Text="Exercise name: " Grid.Row="1" Grid.Column="0"/>
+                <Label x:Name="ExerciseName" Text="{Binding ex_Name}" Grid.Row="1" Grid.Column="1"/>
+
+                <Label Text="Exercise type: " Grid.Row="2" Grid.Column="0"/>
+                <Label x:Name="ExerciseType" Text="{Binding ex_Type}" Grid.Row="2" Grid.Column="1"/>
+
+                <Label Text="Total calories burned: " Grid.Row="3" Grid.Column="0"/>
+                <Label x:Name="CaloriesBurned" Text="{Binding cals_Burned}" Grid.Row="3" Grid.Column="1"/>
+
+
+            </Grid>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
