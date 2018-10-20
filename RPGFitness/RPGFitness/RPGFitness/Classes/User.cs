@@ -66,25 +66,6 @@ namespace RPGFitness
             }
         }
 
-        public Nullable<int> _MaxDailyIntake
-        {
-            set
-            {
-                if (MaxDailyIntake != value)
-                {
-                    MaxDailyIntake = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs("_MaxDailyIntak"));
-                    }
-                }
-
-            }
-            get
-            {
-                return MaxDailyIntake;
-            }
-        }
 
         public uint CalculateCaloriesLeft()
         {

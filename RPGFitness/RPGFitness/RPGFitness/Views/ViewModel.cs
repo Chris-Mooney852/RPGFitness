@@ -16,7 +16,7 @@ namespace RPGFitness.Views
 
         public ICommand LoginPageClickCommand { protected set; get; }
 
-        public ICommand ProfilePageCLickCommand { protected set; get; }
+        
 
         
 
@@ -38,10 +38,7 @@ namespace RPGFitness.Views
                 navManager.ShowLoginPage();
             });
 
-            ProfilePageCLickCommand = new Command(() =>
-            {
-                navManager.ShowProfilePage();
-            });
+           
         }
     }
 }

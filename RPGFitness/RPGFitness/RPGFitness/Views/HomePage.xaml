@@ -21,17 +21,7 @@
                 <Label x:Name="GoalLabel" Text="{Binding GoalWeight}" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1"/>
                 
             </Grid>
-
-            <Button Text="Edit Profile" VerticalOptions="End" HorizontalOptions="Center"
-                    Command="{Binding ProfilePageCLickCommand}">
-                <Button.BindingContext>
-                    <local:ViewModel/>
-                </Button.BindingContext>
-            </Button>
-
-
-
-           
+          
 
         </StackLayout>
     </ContentPage.Content>

@@ -20,8 +20,7 @@ namespace RPGFitness.Data
         public Clock Clock { get; set; }
         public List<Exercise> currentExercises { get; set; }
         public Exercise exerciseItem { get; set; }
-
-
+        public User newUser = new User();
 
 
         public ItemManager(IRestService service)
@@ -78,7 +77,7 @@ namespace RPGFitness.Data
         {
             currentUser.ConsumedCalories += TotalCalories;
             UpdateUserAsync();
-            return (double)TotalCalories / (double)currentUser._MaxDailyIntake;
+            return (double)TotalCalories / (double)currentUser.MaxDailyIntake;
         }
 
         public Task<List<Exercise>> ReturnExercises()

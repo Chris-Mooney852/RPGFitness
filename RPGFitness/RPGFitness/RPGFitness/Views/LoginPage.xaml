@@ -27,10 +27,12 @@
                    TextColor="Red"/>
             <Label Text="Don't have an account?" FontSize="Small"/>
             <Button Text="Sign Up" FontSize="Small"
-                    Command="{Binding SignUpPageClickCommand}"
+                    Command="{Binding SignUPageClickCommand }"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
-            
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
