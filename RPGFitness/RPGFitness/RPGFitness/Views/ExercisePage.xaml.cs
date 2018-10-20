@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,11 +15,11 @@ using Xamarin.Forms.Xaml;
 namespace RPGFitness.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Exercise : ContentPage
+	public partial class ExercisePage : ContentPage
 	{
         public static Data.PageNavigationManager navigationManager { get; set; }
 
-        public Exercise ()
+        public ExercisePage ()
 		{
 			InitializeComponent ();
 		}
@@ -31,7 +36,7 @@ namespace RPGFitness.Views
         void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
         {
             navigationManager = Data.PageNavigationManager.Instance;
-           // App.Manager.exerciseItem = e.SelectedItem as  
+            //App.Manager.exerciseItem = e.SelectedItem as Exercise;
         }
     }
 }
