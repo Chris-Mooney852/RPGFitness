@@ -8,7 +8,7 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                    x:Name="RecipeLabel"/>
-            <Label x:Name="Calories" Text="{Binding TotalCalories}"/>
+            
 
             <ListView x:Name="IngredientsList" Margin="20">
                 <ListView.ItemTemplate>
@@ -21,6 +21,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
+            <Label Text="Total Calories" HorizontalOptions="Center"/>
+            <Label x:Name="Calories" Text="{Binding TotalCalories}" HorizontalOptions="Center"/>
 
             <Button Text="Add to Daily Intake" FontSize="Small"
                     Clicked="OnIntakeClicked"

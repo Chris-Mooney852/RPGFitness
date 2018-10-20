@@ -22,5 +22,7 @@ namespace RPGFitness.Data
         Task<Recipe> UpdateRecipeAsync(Recipe recipe, List<Ingredient> ingredients );
 
         Task<List<RecipeContent>> GetRecipeContentsAsync(int recipeId);
+
+        Task<List<Exercise>> GetExercisesAsync();
     }
 }

@@ -18,6 +18,7 @@ namespace RPGFitness.Data
         public List<User> currentUsers { get; set; }
         public Recipe mealItem { get; set; }
         public int TotalCalories { get; set; }
+        public List<Exercise> currentExercises { get; set; }
 
 
 
@@ -73,6 +74,11 @@ namespace RPGFitness.Data
         {
             currentUser.ConsumedCalories += TotalCalories;
             return (double)TotalCalories / (double)currentUser.MaxDailyIntake; 
+        }
+
+        public Task<List<Exercise>> ReturnExercises()
+        {
+            return restservice.GetExercisesAsync();
         }
     }
 }
