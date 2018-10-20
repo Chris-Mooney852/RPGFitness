@@ -32,6 +32,7 @@ namespace RPGFitness.Views
             newUser.UserEmail = EmailEntry.Text;
             newUser.MaxDailyIntake = 2000;
             newUser.ConsumedCalories = 0;
+            newUser.LastLogin = DateTime.Today;
 
             
 

@@ -16,5 +16,14 @@ namespace RPGFitness.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            ExerciseList.ItemsSource = await App.Manager.ReturnExercises();
+
+
+        }
+    }
 }
