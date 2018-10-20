@@ -36,7 +36,8 @@ namespace RPGFitness.Views
         void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
         {
             navigationManager = Data.PageNavigationManager.Instance;
-            //App.Manager.exerciseItem = e.SelectedItem as Exercise;
+            App.Manager.exerciseItem = e.SelectedItem as Exercise;
+
         }
     }
 }
