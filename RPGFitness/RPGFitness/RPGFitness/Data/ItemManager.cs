@@ -15,9 +15,9 @@ namespace RPGFitness.Data
         public List<Ingredient> currentIngredients { get; set; }
         public List<Recipe> currentRecipes { get; set;}
         public User currentUser { get; set; }
-        public List<User> currentUsers { get; set; }
         public Recipe mealItem { get; set; }
         public int TotalCalories { get; set; }
+        public Clock Clock { get; set; }
 
 
 
@@ -37,9 +37,12 @@ namespace RPGFitness.Data
             return restservice.GetRecipesAsync();
         }
 
-        public Task<User> ReturnUserAsync(string user)
+        public async Task<User> ReturnUserAsync(string user)
         {
-            return restservice.GetUserAsync(user);
+            currentUser = await restservice.GetUserAsync(user);
+            Clock = new Clock();
+            Clock.ResetDailyData();
+            return currentUser;
         }
 
         public Task SaveUserAsync(User user)
@@ -72,7 +75,8 @@ namespace RPGFitness.Data
         public double CalculateTotalCalories()
         {
             currentUser.ConsumedCalories += TotalCalories;
-            return (double)TotalCalories / (double)currentUser.MaxDailyIntake; 
+            UpdateUserAsync();
+            return (double)TotalCalories / (double)currentUser.MaxDailyIntake;
         }
     }
 }

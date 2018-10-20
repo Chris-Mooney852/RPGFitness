@@ -19,6 +19,7 @@ namespace RPGFitness
         public Nullable<int> ConsumedCalories { get; set; }
         public Nullable<int> TargetDailySteps { get; set; }
         public Nullable<int> CurrentSteps { get; set; }
+        public Nullable<DateTime> LastLogin { get; set; }
         private double Health;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -78,7 +79,7 @@ namespace RPGFitness
         public override string ToString()
         {
 
-            return String.Format("ID: {0} Name: {1} Email: {2}", UserID, UserName, UserEmail);
+            return String.Format("ID: {0} Name: {1} Email: {2} LastLogin: {3}", UserID, UserName, UserEmail, LastLogin);
 
         }
     }

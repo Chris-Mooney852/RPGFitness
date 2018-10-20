@@ -28,9 +28,9 @@ namespace RPGFitness.Views
         public void OnIntakeClicked(object sender, EventArgs e)
         {
             App.Manager.currentUser._Health -= App.Manager.CalculateTotalCalories();
+            Console.WriteLine("***************** Current Calories {0}", App.Manager.currentUser.ConsumedCalories);
             Console.WriteLine("**************** current user health: {0}", App.Manager.currentUser._Health);
             App.Manager.TotalCalories = 0;
-            App.Manager.UpdateUserAsync();
         }
     }
 }
