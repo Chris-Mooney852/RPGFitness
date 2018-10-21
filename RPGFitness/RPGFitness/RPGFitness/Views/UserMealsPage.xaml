@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RPGFitness.Views.Meals"
-             Title="Meals">
-    
+             x:Class="RPGFitness.Views.UserMealsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Meals"
-                VerticalOptions="CenterAndExpand" 
+            <Label Text="My Meal Plan" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView x:Name="MealList" Margin="20" ItemSelected="OnMealSelected">
+            
+            <ListView x:Name="listView" Margin="20" ItemSelected="OnMealSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="20,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                <Label Text="{Binding RecipeName}" VerticalTextAlignment="Center" />
+
+                                <Label Text="{Binding recipeName}"  />
+
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-            
-            <Button Text="My MEals" VerticalOptions="End" Clicked="OnMyMealsClicked"/>
 
+            </ListView>
+            <Button Text="Add recipie" VerticalOptions="End" HorizontalOptions="Center" Clicked="AddRecipeClicked"/>
+          
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
