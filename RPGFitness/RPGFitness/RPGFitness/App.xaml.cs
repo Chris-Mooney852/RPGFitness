@@ -37,6 +37,8 @@ namespace RPGFitness
             UserItemManager = new LocalItemManager(new DBService(dbPath));
 
 
+
+
             //Make the app a navigation based app
             mainPage = new LoginPage();
             MainPage = new NavigationPage(mainPage);

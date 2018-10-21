@@ -19,12 +19,18 @@ namespace RPGFitness.Views
 			InitializeComponent ();
 
 
+
+
             //Bind the Name Label to the current user
             NameLabel.BindingContext = App.Manager.currentUser;
 
             //Assign the remaing user health to the users health and convert to a percentage.
             App.Manager.currentUser._Health = ((double)App.Manager.currentUser.MaxDailyIntake - 
                 (double)App.Manager.currentUser.ConsumedCalories) / (double)App.Manager.currentUser.MaxDailyIntake;
+
+
+            //Assign the user remaining calories
+            App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;
 
             //Bind the health bar to the current user.
             UserHealth.BindingContext = App.Manager.currentUser;
@@ -34,6 +40,10 @@ namespace RPGFitness.Views
 
             //Bind the goal weight label to the current user
             GoalLabel.BindingContext = App.Manager.currentUser;
+
+            //CalorieLabel.BindingContext = App.Manager.currentUser;
+
+            CalorieLabel.BindingContext = App.Manager.currentUser;//Convert.ToString(App.Manager.currentUser.RemainingCalories);
 
 
         }

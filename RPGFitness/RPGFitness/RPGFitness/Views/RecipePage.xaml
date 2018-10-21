@@ -27,6 +27,11 @@
                     Clicked="OnIntakeClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
+            <Button Text="Add to Meal Plan" FontSize="Small"
+                    Clicked="OnAddMealClicked"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

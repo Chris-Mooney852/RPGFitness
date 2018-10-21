@@ -21,7 +21,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             
-            <Button Text="My MEals" VerticalOptions="End" Clicked="OnMyMealsClicked"/>
+            <Button Text="My Meals" VerticalOptions="End" Clicked="OnMyMealsClicked"/>
 
         </StackLayout>
     </ContentPage.Content>
