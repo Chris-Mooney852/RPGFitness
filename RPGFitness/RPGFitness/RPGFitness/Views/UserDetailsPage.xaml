@@ -16,8 +16,7 @@
             <Label Text="Goal Weight" FontSize="Small"/>
             <Entry x:Name="GoalWeight" TextChanged="TextChanged"/>
 
-            <Button x:Name="SubmitButton" Text="Submit" Clicked="OnSubmitClicked" IsEnabled="False"
-                    Command="{Binding LoginPageClickCommand}"/>
+            <Button x:Name="SubmitButton" Text="Submit" Clicked="OnSubmitClicked" IsEnabled="False"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

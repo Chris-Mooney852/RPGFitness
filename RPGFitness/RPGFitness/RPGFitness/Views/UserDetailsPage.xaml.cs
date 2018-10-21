@@ -12,7 +12,9 @@ namespace RPGFitness.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class UserDetailsPage : ContentPage
 	{
-		public UserDetailsPage ()
+        public static Data.PageNavigationManager navigationManager { get; set; }
+
+        public UserDetailsPage ()
 		{
 			InitializeComponent ();
 		}
@@ -24,6 +26,9 @@ namespace RPGFitness.Views
             App.Manager.newUser.MaxDailyIntake = App.Manager.newUser.CurrentWeight * 24;
 
             await App.Manager.SaveUserAsync(App.Manager.newUser);
+
+            navigationManager = Data.PageNavigationManager.Instance;
+            navigationManager.ShowLoginPage();
 
         }
 
