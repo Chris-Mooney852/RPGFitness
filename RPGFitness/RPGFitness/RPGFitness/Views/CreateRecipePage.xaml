@@ -7,7 +7,7 @@
             <Label Text="Create a meal"
                 HorizontalOptions="CenterAndExpand" />
 
-            <Label Text="Recipe Name"/>
+            <Label Text="Meal Name"/>
             <Entry x:Name="NameEntry" Text="{Binding Path=recipeName}"/>
             <Label Text="Total calories"/>
             <Entry x:Name="CalorieEntry" Text="{Binding Path=totCalories}"/>

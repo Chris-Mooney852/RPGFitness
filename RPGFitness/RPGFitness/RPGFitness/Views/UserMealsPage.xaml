@@ -21,7 +21,7 @@
                 </ListView.ItemTemplate>
 
             </ListView>
-            <Button Text="Add recipie" VerticalOptions="End" HorizontalOptions="Center" Clicked="AddRecipeClicked"/>
+            <Button Text="Add Meal" VerticalOptions="End" HorizontalOptions="Center" Clicked="AddRecipeClicked"/>
           
         </StackLayout>
     </ContentPage.Content>
