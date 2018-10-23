@@ -34,19 +34,6 @@ namespace RPGFitness.Views
             //Bind the health bar to the current user.
             UserHealth.BindingContext = App.Manager.currentUser;
 
-            if (App.Manager.currentUser._Health >= 0.50)
-            {
-                UserHealth.ProgressColor = Color.FromHex("#00FF04");
-            }
-            else if (App.Manager.currentUser._Health > 0.20 && App.Manager.currentUser._Health < 0.50)
-            {
-                UserHealth.ProgressColor = Color.FromHex("#F8FF00");
-            }
-            else if (App.Manager.currentUser._Health <= 0.20)
-            {
-                UserHealth.ProgressColor = Color.FromHex("#FF0000");
-            }
-
             //Bind the current weight label to the current users weight
             WeightLabel.BindingContext = App.Manager.currentUser;
 
@@ -59,7 +46,6 @@ namespace RPGFitness.Views
 
 
         }
-
        
 	}
 }
