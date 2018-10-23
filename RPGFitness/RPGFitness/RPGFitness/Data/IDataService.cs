@@ -11,5 +11,9 @@ namespace RPGFitness.Data
         Task<List<UserRecipe>> RefreshRecipesAsync();
 
         Task SaveRecipeAsync(UserRecipe recipe);
+
+        Task<List<UserExercise>> RefreshExerciseAsync();
+
+        Task SaveExerciseAsync(UserExercise exercise);
     }
 }

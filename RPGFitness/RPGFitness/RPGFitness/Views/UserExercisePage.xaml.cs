@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RPGFitness.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +11,11 @@ using Xamarin.Forms.Xaml;
 namespace RPGFitness.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ExercisePage : ContentPage
+	public partial class UserExercisePage : ContentPage
 	{
         public static Data.PageNavigationManager navigationManager { get; set; }
 
-        public ExercisePage ()
+        public UserExercisePage ()
 		{
 			InitializeComponent ();
 		}
@@ -28,23 +24,18 @@ namespace RPGFitness.Views
         {
             base.OnAppearing();
 
-            ExerciseList.ItemsSource = await App.Manager.ReturnExercises();
-
+            listView.ItemsSource = await App.UserItemManager.GetUserExerciseAsync();
 
         }
+
+       
 
         void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
         {
             navigationManager = Data.PageNavigationManager.Instance;
+            App.UserItemManager.currentUserExercise = e.SelectedItem as UserExercise;
             App.Manager.exerciseItem = e.SelectedItem as Exercise;
-            navigationManager.ShowExerciseDetailPage();
-        }
-
-        void OnShowUserExerciseClicked (object sender, EventArgs e)
-        {
-            navigationManager = Data.PageNavigationManager.Instance;
-            navigationManager.ShowUserExercisePage();
-            
+            navigationManager.ShowUserExerciseDetailPage();
         }
     }
 }

@@ -21,6 +21,8 @@ namespace RPGFitness.Data
         public List<Exercise> currentExercises { get; set; }
         public Exercise exerciseItem { get; set; }
         public User newUser = new User();
+        public int totalBurnedCalories { get; set; }
+        
 
 
         public ItemManager(IRestService service)
@@ -58,8 +60,12 @@ namespace RPGFitness.Data
 
         public async Task<List<Ingredient>> ReturnRecipeIngredients(Recipe recipe)
         {
+            TotalCalories = 0;
+
             List<RecipeContent> currentContent = await restservice.GetRecipeContentsAsync(recipe.RecipeId);
+
             Ingredient newIngredient = new Ingredient();
+
             currentIngredients = new List<Ingredient>();
 
             foreach (RecipeContent ingredientContext in currentContent)
@@ -83,6 +89,13 @@ namespace RPGFitness.Data
         public Task<List<Exercise>> ReturnExercises()
         {
             return restservice.GetExercisesAsync();
+        }
+
+        public double CalculateBurnedCalories()
+        {
+            currentUser.ConsumedCalories -= totalBurnedCalories;
+            UpdateUserAsync();
+            return (double)totalBurnedCalories / (double)currentUser.MaxDailyIntake;
         }
     }
 }

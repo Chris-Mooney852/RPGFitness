@@ -75,6 +75,16 @@ namespace RPGFitness.Data
             navigation.PushAsync(new Views.UserMealDetailPage());
         }
 
+        public void ShowUserExercisePage()
+        {
+            navigation.PushAsync(new Views.UserExercisePage());
+        }
+        
+        public void ShowUserExerciseDetailPage()
+        {
+            navigation.PushAsync(new Views.UserExerciseDetailPage());
+        }
+
        
     }
 }

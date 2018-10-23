@@ -14,12 +14,14 @@
                 <Label Text="Exercise type: " Grid.Row="2" Grid.Column="0"/>
                 <Label x:Name="ExerciseType" Text="{Binding ex_Type}" Grid.Row="2" Grid.Column="1"/>
 
-                <Label Text="Total calories burned: " Grid.Row="3" Grid.Column="0"/>
+                <Label Text="Total calories burned per 10 minutes: " Grid.Row="3" Grid.Column="0"/>
                 <Label x:Name="CaloriesBurned" Text="{Binding cals_Burned}" Grid.Row="3" Grid.Column="1"/>
 
 
             </Grid>
-            
+
+            <Button Text="Add To Exercise Plan" Clicked="OnAddClicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

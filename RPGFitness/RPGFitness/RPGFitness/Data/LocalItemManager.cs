@@ -14,6 +14,10 @@ namespace RPGFitness.Data
 
         public List<UserRecipe> currentUserRecipes { get; set;}
 
+        public UserExercise currentUserExercise = new UserExercise();
+
+        public List<UserExercise> currentUserExercises { get; set; }
+
         public LocalItemManager (IDataService service)
         {
             localUserservice = service;
@@ -27,6 +31,16 @@ namespace RPGFitness.Data
         public Task SaveUserRecipeAsync(UserRecipe recipe)
         {
             return localUserservice.SaveRecipeAsync(recipe);
+        }
+
+        public Task<List<UserExercise>> GetUserExerciseAsync()
+        {
+            return localUserservice.RefreshExerciseAsync();
+        }
+
+        public Task SaveUserExerciseAsync(UserExercise exercise)
+        {
+            return localUserservice.SaveExerciseAsync(exercise);
         }
            
     }

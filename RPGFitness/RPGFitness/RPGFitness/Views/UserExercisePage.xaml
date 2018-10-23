@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RPGFitness.Views.ExercisePage"
-             Title="Exercise">
+             x:Class="RPGFitness.Views.UserExercisePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Exercise Page"
-                VerticalOptions="CenterAndExpand" 
+            <Label Text="My Exercise Plan"
                 HorizontalOptions="CenterAndExpand" />
-
-            <ListView x:Name="ExerciseList" ItemSelected="OnExerciseSelected" Margin="20">
+            <ListView x:Name="listView" Margin="20" ItemSelected="OnExerciseSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="20,0,0,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                                <Label Text="{Binding ex_Name}" VerticalTextAlignment="Center"/>
+
+                                <Label Text="{Binding exerciseName }"  />
+
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="My Exercises" Clicked="OnShowUserExerciseClicked"/>
+
+           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
