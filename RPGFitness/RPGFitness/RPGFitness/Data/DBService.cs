@@ -17,6 +17,7 @@ namespace RPGFitness.Data
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<UserRecipe>().Wait();
             database.CreateTableAsync<UserExercise>().Wait();
+            database.CreateTableAsync<UserLogin>().Wait();
         }
 
         public Task<List<UserRecipe>> RefreshRecipesAsync()
@@ -54,6 +55,25 @@ namespace RPGFitness.Data
                 //generate id before saving
                 exercise.Id = DateTime.Now.GetHashCode().ToString();
                 return database.InsertAsync(exercise);
+            }
+        }
+
+        public Task<UserLogin> RefreshLastLoginAsync(string id)
+        {
+            return  database.Table<UserLogin>().Where(i => i.UserId == id).FirstOrDefaultAsync();
+        }
+
+        public Task SaveLastLoginAsync(UserLogin login)
+        {
+            if (login.UserId != null)
+            {
+                return database.UpdateAsync(login);
+            }
+            else
+            {
+                login.UserId = App.Manager.currentUser.UserEmail;
+                return database.InsertAsync(login);
+
             }
         }
 

@@ -10,15 +10,22 @@ namespace RPGFitness
     {
         private readonly DateTime _today;
         private DateTime _lastLogin;
+        private string _currentUserId;
+        private UserLogin _currentUserLogin;
 
         public Clock()
         {
-            _today = DateTime.Today;
-            _lastLogin = (DateTime)App.Manager.currentUser.LastLogin;
-            //Console.WriteLine("@@@@@@@@@@@@@Before: {0}", _today.ToString());
-            //_today = TimeZoneInfo.ConvertTimeToUtc(_today, TimeZoneInfo.Local);
-            //_lastLogin = TimeZoneInfo.ConvertTimeToUtc(_lastLogin, TimeZoneInfo.c);
+            _currentUserId = App.Manager.currentUser.UserEmail;
 
+            _today = DateTime.Today;
+           
+
+        }
+
+        public async void GetLastUserLogin()
+        {
+            _currentUserLogin =  await App.UserItemManager.GetLastLoginAsync(_currentUserId);
+            _lastLogin = _currentUserLogin.LastLogin;
         }
 
         public void ResetDailyData()
@@ -35,8 +42,9 @@ namespace RPGFitness
 
         public void UpdateLastLogin()
         {
-            App.Manager.currentUser.LastLogin = _today;
-            App.Manager.UpdateUserAsync();
+            App.UserItemManager.currentUserLogin.LastLogin = _today;
+
+            App.UserItemManager.SaveUserLoginAsync(App.UserItemManager.currentUserLogin);
         }
 
     }

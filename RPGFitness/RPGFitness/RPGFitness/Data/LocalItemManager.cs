@@ -18,6 +18,8 @@ namespace RPGFitness.Data
 
         public List<UserExercise> currentUserExercises { get; set; }
 
+        public UserLogin currentUserLogin = new UserLogin();
+
         public LocalItemManager (IDataService service)
         {
             localUserservice = service;
@@ -42,6 +44,17 @@ namespace RPGFitness.Data
         {
             return localUserservice.SaveExerciseAsync(exercise);
         }
+
+        public Task SaveUserLoginAsync(UserLogin login)
+        {
+            return localUserservice.SaveLastLoginAsync(login);
+        }
+
+        public Task<UserLogin> GetLastLoginAsync(string id)
+        {
+            return localUserservice.RefreshLastLoginAsync(id);
+        }
+
            
     }
 }

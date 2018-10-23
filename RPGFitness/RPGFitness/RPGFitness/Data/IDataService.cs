@@ -15,5 +15,9 @@ namespace RPGFitness.Data
         Task<List<UserExercise>> RefreshExerciseAsync();
 
         Task SaveExerciseAsync(UserExercise exercise);
+
+        Task SaveLastLoginAsync(UserLogin login);
+
+        Task<UserLogin> RefreshLastLoginAsync(string id);
     }
 }

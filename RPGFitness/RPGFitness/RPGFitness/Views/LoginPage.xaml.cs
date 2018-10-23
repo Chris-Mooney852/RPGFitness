@@ -49,6 +49,12 @@ namespace RPGFitness.Views
                 {
                     App.Manager.currentUser = currentUser;
 
+
+                    
+                    Clock clock = new Clock();
+                    clock.GetLastUserLogin();
+                    clock.ResetDailyData();
+
                     navManager.ShowMainPage();
                     
 
