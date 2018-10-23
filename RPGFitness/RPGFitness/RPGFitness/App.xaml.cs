@@ -11,7 +11,8 @@ using System.IO;
 namespace RPGFitness
 {
     public partial class App : Application
-    {
+    {        
+
         string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "UserSQLite.db3");
 
         //create item manger for web API
@@ -31,6 +32,9 @@ namespace RPGFitness
 
         public App()
         {
+            //Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzY0NzZAMzEzNjJlMzMyZTMwSDhWM1pMTUJNOFM1SnRYSmYwbjlmUzA5MmlLdDF6SERtSjVLL0s3alIwZz0=");
+
             InitializeComponent();
             Manager = new ItemManager(new RestService());
 
