@@ -17,7 +17,7 @@ namespace RPGFitness
             _lastLogin = (DateTime)App.Manager.currentUser.LastLogin;
             //Console.WriteLine("@@@@@@@@@@@@@Before: {0}", _today.ToString());
             //_today = TimeZoneInfo.ConvertTimeToUtc(_today, TimeZoneInfo.Local);
-            //_lastLogin = TimeZoneInfo.ConvertTimeToUtc(_lastLogin, TimeZoneInfo.c);
+            //_lastLogin = TimeZoneInfo.ConvertTimeFromUtc(_lastLogin, TimeZoneInfo.Local);
 
         }
 
