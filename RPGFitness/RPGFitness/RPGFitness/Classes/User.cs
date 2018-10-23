@@ -21,6 +21,7 @@ namespace RPGFitness
         public Nullable<int> CurrentSteps { get; set; }
         public Nullable<DateTime> LastLogin { get; set; }
         private double Health;
+        private double remainingCalories;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -63,6 +64,26 @@ namespace RPGFitness
             get
             {
                 return Health;
+            }
+        }
+
+        public double RemainingCalories
+        {
+            set
+            {
+                if (remainingCalories != value)
+                {
+                    remainingCalories = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("RemainingCalories"));
+                    }
+                }
+
+            }
+            get
+            {
+                return remainingCalories;
             }
         }
 

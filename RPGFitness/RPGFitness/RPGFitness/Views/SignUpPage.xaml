@@ -12,13 +12,13 @@
                 VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Label Text="Name"/>
-            <Entry x:Name="NameEntry" Text="{Binding UserName}"/>
-            <Label Text="Password"/>
-            <Entry x:Name="PasswordEntry" Text="{Binding UserPassword}"/>
-            <Label Text="Email Address"/>
-            <Entry x:Name="EmailEntry" Text="{Binding UserEmail}"/> 
-            <Button Text="Submit" Clicked="OnSubmitClicked"
-                    Command="{Binding LoginPageClickCommand}"/>
+            <Entry x:Name="NameEntry" Text="{Binding UserName}" TextChanged="TextChanged"/>
+            <Label Text="Password" FontSize="Small"/>
+            <Entry x:Name="PasswordEntry" Text="{Binding UserPassword}" TextChanged="TextChanged"/>
+            <Label Text="Email Address" FontSize="Small"/>
+            <Entry x:Name="EmailEntry" Text="{Binding UserEmail}" TextChanged="TextChanged"/>
+            
+            <Button x:Name="NextButton" Text="Next" Clicked="OnNextClicked" IsEnabled="False"/>
 
         </StackLayout>
     </ContentPage.Content>

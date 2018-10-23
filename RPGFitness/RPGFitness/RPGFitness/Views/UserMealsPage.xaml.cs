@@ -1,44 +1,46 @@
-﻿using System;
+﻿using RPGFitness.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace RPGFitness.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Meals : ContentPage
+	public partial class UserMealsPage : ContentPage
 	{
         public static Data.PageNavigationManager navigationManager { get; set; }
-		public Meals ()
+
+        public UserMealsPage ()
 		{
 			InitializeComponent ();
-
 		}
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            MealList.ItemsSource = await App.Manager.ReturnRecipies();
 
+            listView.ItemsSource = await App.UserItemManager.GetUserRecipeAsync();
+            
+        }
+
+        private void AddRecipeClicked(object sender, EventArgs e)
+        {
+            navigationManager = Data.PageNavigationManager.Instance;
+            navigationManager.ShowCreateRecipePage();
         }
 
         void OnMealSelected(object sender, SelectedItemChangedEventArgs e)
         {
             navigationManager = Data.PageNavigationManager.Instance;
-            App.Manager.mealItem = e.SelectedItem as Recipe;
-            navigationManager.ShowRecipeContentsPage();
+            App.UserItemManager.currentUserrecipe = e.SelectedItem as UserRecipe;
+            navigationManager.ShowUserRecipeDetailPage();
         }
 
-        
-        private void OnMyMealsClicked(object sender, EventArgs e)
-        {
-            navigationManager = Data.PageNavigationManager.Instance;
-            navigationManager.ShowMyMealPlanPage();
 
-        }
+
     }
 }

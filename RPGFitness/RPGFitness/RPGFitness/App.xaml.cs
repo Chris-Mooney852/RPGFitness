@@ -5,13 +5,20 @@ using System.Diagnostics;
 using RPGFitness.Data;
 using RPGFitness.Views;
 using System.Collections.Generic;
+using System.IO;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace RPGFitness
 {
     public partial class App : Application
     {
+        string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "UserSQLite.db3");
+
+        //create item manger for web API
         public static ItemManager Manager { get; private set; }
+
+        //create item manager for local sql
+        public static LocalItemManager UserItemManager { get; set; }
 
         private ContentPage mainPage;
 
@@ -19,7 +26,7 @@ namespace RPGFitness
 
         public static ViewModel viewModel { get; set; }
 
-        //public List<User> allUsers { get; set; }
+      
 
 
         public App()
@@ -27,7 +34,9 @@ namespace RPGFitness
             InitializeComponent();
             Manager = new ItemManager(new RestService());
 
-            //allUsers = Manager.currentUsers;
+            UserItemManager = new LocalItemManager(new DBService(dbPath));
+
+
 
 
             //Make the app a navigation based app

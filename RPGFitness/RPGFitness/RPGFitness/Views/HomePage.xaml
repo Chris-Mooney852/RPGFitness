@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:RPGFitness.Views"
-             xmlns:local1="clr-namespace:RPGFitness"
-             x:Class="RPGFitness.Views.HomePage">
+             x:Class="RPGFitness.Views.HomePage"
+             Title="Home Page">
     <ContentPage.Content>
         <StackLayout>
             <Label x:Name="WelcomeLabel"
@@ -11,11 +11,23 @@
                 HorizontalOptions="Center" />
             <Label x:Name="NameLabel" Text="{Binding UserName}"
                 HorizontalOptions="Center"/>
+            <Label Text="Todays remaining calories" HorizontalOptions="Center"/>
             <ProgressBar x:Name="UserHealth" Progress="{Binding _Health}"/>
 
+            <Grid>
+                <Label Text="Current Weight" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Label x:Name="WeightLabel" Text="{Binding CurrentWeight}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1"/>
+
+                <Label Text="Goal Weight" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Label x:Name="GoalLabel" Text="{Binding GoalWeight}" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1"/>
+
+                <Label Text="Remaining Calories" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Label x:Name="CalorieLabel" Text="{Binding RemainingCalories}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1"/>
 
 
-           
+
+            </Grid>
+          
 
         </StackLayout>
     </ContentPage.Content>

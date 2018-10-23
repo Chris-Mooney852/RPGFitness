@@ -20,8 +20,7 @@ namespace RPGFitness.Data
         public Clock Clock { get; set; }
         public List<Exercise> currentExercises { get; set; }
         public Exercise exerciseItem { get; set; }
-
-
+        public User newUser = new User();
 
 
         public ItemManager(IRestService service)
