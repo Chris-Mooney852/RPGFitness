@@ -14,6 +14,8 @@ namespace RPGFitness
         {
             InitializeComponent();
             RestService rest = new RestService();
+            NavigationPage.SetHasBackButton(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
 
             
             
@@ -25,7 +27,7 @@ namespace RPGFitness
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PopToRootAsync();
         }
     }
 }

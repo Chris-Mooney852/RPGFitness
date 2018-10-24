@@ -22,7 +22,7 @@ namespace RPGFitness
         public Nullable<DateTime> LastLogin { get; set; }
         private double Health;
         private double remainingCalories;
-        private int totalExerciseCalories;
+        private double totalExerciseCalories;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -88,7 +88,7 @@ namespace RPGFitness
             }
         }
 
-        public int TotalExerciseCalories
+        public double TotalExerciseCalories
         {
             set
             {

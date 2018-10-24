@@ -30,6 +30,7 @@ namespace RPGFitness.Views
             App.Manager.currentUser._Health += App.Manager.CalculateBurnedCalories();
             App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;
             App.Manager.totalBurnedCalories = 0;
+            App.Manager.currentUser.TotalExerciseCalories = 0;
             await Navigation.PopAsync();
         }
 
@@ -37,7 +38,7 @@ namespace RPGFitness.Views
         {
             try
             {
-                App.Manager.currentUser.TotalExerciseCalories = Convert.ToInt16(ExerciseLength.Text) * (App.UserItemManager.currentUserExercise.totalCaloriesBurned / 10);
+                App.Manager.currentUser.TotalExerciseCalories = Convert.ToDouble(ExerciseLength.Text) * (App.UserItemManager.currentUserExercise.totalCaloriesBurned / 10);
             }
             catch(Exception)
             {

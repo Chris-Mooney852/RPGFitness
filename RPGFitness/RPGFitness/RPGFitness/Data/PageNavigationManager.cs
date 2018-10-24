@@ -38,6 +38,7 @@ namespace RPGFitness.Data
         public void ShowMainPage()
         {
             navigation.PushAsync(new MainPage());
+            
         }
 
         public void ShowLoginPage()

@@ -12,6 +12,8 @@ namespace RPGFitness.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExerciseDetailPage : ContentPage
     {
+        public static Data.PageNavigationManager navigationManager { get; set; }
+
         public ExerciseDetailPage()
         {
             InitializeComponent();
@@ -28,6 +30,9 @@ namespace RPGFitness.Views
             App.UserItemManager.currentUserExercise.totalCaloriesBurned = App.Manager.exerciseItem.cals_Burned;
             App.UserItemManager.currentUserExercise.exerciseType = App.Manager.exerciseItem.ex_Type;
             await App.UserItemManager.SaveUserExerciseAsync(App.UserItemManager.currentUserExercise);
+
+            navigationManager = Data.PageNavigationManager.Instance;
+            navigationManager.ShowMainPage();
 
 
         }

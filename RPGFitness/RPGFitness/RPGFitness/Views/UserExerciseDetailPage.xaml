@@ -13,14 +13,16 @@
                 <Label Text="Exercise type: " Grid.Row="2" Grid.Column="0"/>
                 <Label x:Name="ExerciseType" Text="{Binding exerciseType}" Grid.Row="2" Grid.Column="1"/>
 
-                <Label Text="Total calories burned: " Grid.Row="3" Grid.Column="0"/>
-                <Label x:Name="CaloriesBurned" Text="{Binding TotalExerciseCalories}" Grid.Row="3" Grid.Column="1"/>
+                
 
                 
             </Grid>
 
             <Label Text="How long did you do this exercise?" HorizontalOptions="CenterAndExpand"/>
-            <Entry x:Name="ExerciseLength" Placeholder="Enter exercise time." TextChanged="ExerciseLength_TextChanged"/>
+            <Entry x:Name="ExerciseLength" Placeholder="Enter exercise time in minutes." TextChanged="ExerciseLength_TextChanged" Keyboard="Numeric"/>
+
+            <Label Text="Total calories you will burn: " HorizontalOptions="Center"/>
+            <Label x:Name="CaloriesBurned" Text="{Binding TotalExerciseCalories}" HorizontalOptions="Center"/>
 
 
             <Button Text="Complete Exercise" Clicked="OnCompleteClicked" VerticalOptions="End"/>

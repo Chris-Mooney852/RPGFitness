@@ -12,9 +12,9 @@
                 HorizontalOptions="CenterAndExpand"/>
 
             <Label Text="Current Weight" FontSize="Small"/>
-            <Entry x:Name="CurrentWeight" TextChanged="TextChanged"/>
+            <Entry x:Name="CurrentWeight" Keyboard="Numeric" WidthRequest="100" TextChanged="TextChanged" />
             <Label Text="Goal Weight" FontSize="Small"/>
-            <Entry x:Name="GoalWeight" TextChanged="TextChanged"/>
+            <Entry x:Name="GoalWeight" Keyboard="Numeric" WidthRequest="100" TextChanged="TextChanged"/>
 
             <Label x:Name="ErrorLabel" Text="" HorizontalOptions="Center"/>
 
