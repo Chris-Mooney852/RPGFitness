@@ -5,9 +5,7 @@
              Title="Exercise">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Exercise Page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
 
             <ListView x:Name="ExerciseList" ItemSelected="OnExerciseSelected" Margin="20">
                 <ListView.ItemTemplate>

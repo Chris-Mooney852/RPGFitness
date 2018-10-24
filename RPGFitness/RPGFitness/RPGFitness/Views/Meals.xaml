@@ -6,9 +6,7 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Meals"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
             <ListView x:Name="MealList" Margin="20" ItemSelected="OnMealSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>

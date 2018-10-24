@@ -16,7 +16,9 @@
             <Label Text="Goal Weight" FontSize="Small"/>
             <Entry x:Name="GoalWeight" TextChanged="TextChanged"/>
 
-            <Button x:Name="SubmitButton" Text="Submit" Clicked="OnSubmitClicked" IsEnabled="False"/>
+            <Label x:Name="ErrorLabel" Text="" HorizontalOptions="Center"/>
+
+            <Button x:Name="SubmitButton" Text="Submit" Clicked="OnSubmitClicked" VerticalOptions="End" TextColor="Red" IsEnabled="False"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
