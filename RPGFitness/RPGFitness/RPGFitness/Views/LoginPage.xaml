@@ -9,9 +9,7 @@
             <StackLayout.BindingContext>
                 <local:ViewModel/>
             </StackLayout.BindingContext>
-            <Label Text="Welcome to RPGFitness"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image Source="RPGFitness.png" HorizontalOptions="Center" />
             <Label Text="Username" FontSize="Small"
                    HorizontalOptions="Center"/>
             <Entry x:Name="NameEntry"/>
@@ -22,14 +20,18 @@
             <Button Text="Login" FontSize="Small"
                     Clicked="OnLoginClicked"
                     HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    WidthRequest="120"
+                    HeightRequest="50"
+                    />
             <Label x:Name="SuccessLabel" Text="" HorizontalOptions="Center"
                    TextColor="Red"/>
-            <Label Text="Don't have an account?" FontSize="Small"/>
+            <Label Text="Don't have an account?" FontSize="Small" HorizontalOptions="Center"/>
             <Button Text="Sign Up" FontSize="Small"
                     Command="{Binding SignUPageClickCommand }"
                     HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    WidthRequest="120"/>
 
 
 
