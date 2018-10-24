@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RPGFitness.Views.UserExerciseDetailPage">
+             x:Class="RPGFitness.Views.UserExerciseDetailPage"
+             Title="Exercise Details">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Exercise Details"
-                HorizontalOptions="CenterAndExpand" />
+            
             <Grid>
                 <Label Text="Exercise name: " Grid.Row="1" Grid.Column="0"/>
                 <Label x:Name="ExerciseName" Text="{Binding exerciseName}" Grid.Row="1" Grid.Column="1"/>
@@ -14,10 +14,16 @@
                 <Label x:Name="ExerciseType" Text="{Binding exerciseType}" Grid.Row="2" Grid.Column="1"/>
 
                 <Label Text="Total calories burned: " Grid.Row="3" Grid.Column="0"/>
-                <Label x:Name="CaloriesBurned" Text="{Binding totalCaloriesBurned}" Grid.Row="3" Grid.Column="1"/>
+                <Label x:Name="CaloriesBurned" Text="{Binding TotalExerciseCalories}" Grid.Row="3" Grid.Column="1"/>
 
-                <Button Text="Complete Exercise" Clicked="OnCompleteClicked"/>
+                
             </Grid>
+
+            <Label Text="How long did you do this exercise?" HorizontalOptions="CenterAndExpand"/>
+            <Entry x:Name="ExerciseLength" Placeholder="Enter exercise time." TextChanged="ExerciseLength_TextChanged"/>
+
+
+            <Button Text="Complete Exercise" Clicked="OnCompleteClicked" VerticalOptions="End"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
