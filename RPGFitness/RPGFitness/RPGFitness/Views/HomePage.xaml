@@ -12,18 +12,42 @@
                 HorizontalOptions="Center" />
             <Label x:Name="NameLabel" Text="{Binding UserName}"
                 HorizontalOptions="Center"/>
-            <Label Text="Todays remaining calories" HorizontalOptions="Center"/>
-
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image Source="profile.jpg" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" WidthRequest="120" HeightRequest="120"/>
                 <ProgressBar:SfLinearProgressBar x:Name="UserHealth" Minimum="0" Progress="{Binding _Health}" Maximum="1" TrackHeight="25"
-                                                 Padding="2" Grid.Column="1" Grid.ColumnSpan="2" CornerRadius="10">
+                                                 Padding="2" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" CornerRadius="10">
+                    <ProgressBar:SfLinearProgressBar.RangeColors>
 
+                        <ProgressBar:RangeColorCollection>
+
+                            <ProgressBar:RangeColor IsGradient="True" Color="#FF0000" Start="0" End="0.25"/>
+
+                            <ProgressBar:RangeColor IsGradient="True" Color="#FFFF00" Start="0.25" End=".5"/>
+
+                            <ProgressBar:RangeColor IsGradient="True" Color="#39FF00" Start=".5" End="1"/>
+
+                        </ProgressBar:RangeColorCollection>
+
+                    </ProgressBar:SfLinearProgressBar.RangeColors>
                 </ProgressBar:SfLinearProgressBar>
-                <Label Text="Current Weight" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Label x:Name="WeightLabel" Text="{Binding CurrentWeight}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1"/>
+                <Label Text="Current Weight" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Label x:Name="WeightLabel" Text="{Binding CurrentWeight}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1"/>
 
-                <Label Text="Goal Weight" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Label x:Name="GoalLabel" Text="{Binding GoalWeight}" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1"/>
+                <Label Text="Goal Weight" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Label x:Name="GoalLabel" Text="{Binding GoalWeight}" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1"/>
 
                 <Label Text="Remaining Calories" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
                 <Label x:Name="CalorieLabel" Text="{Binding RemainingCalories}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1"/>
