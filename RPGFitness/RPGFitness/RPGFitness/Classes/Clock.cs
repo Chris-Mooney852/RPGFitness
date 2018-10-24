@@ -9,41 +9,34 @@ namespace RPGFitness
     public class Clock
     {
         private readonly DateTime _today;
-        private List<UserLogin> _lastLogin;
-      
-        //private UserLogin _currentUserLogin;
+        private DateTime _lastLogin;
 
         public Clock()
-        {         
-            _today = DateTime.Today;
-            
-        }
-
-        public async void GetLastUserLogin()
         {
+            _today = DateTime.Today;
+            _lastLogin = (DateTime)App.Manager.currentUser.LastLogin;
+            //Console.WriteLine("@@@@@@@@@@@@@Before: {0}", _today.ToString());
+            //_today = TimeZoneInfo.ConvertTimeToUtc(_today, TimeZoneInfo.Local);
+            //_lastLogin = TimeZoneInfo.ConvertTimeToUtc(_lastLogin, TimeZoneInfo.c);
 
-            _lastLogin = await App.UserItemManager.GetLastLoginAsync();
-           
         }
 
         public void ResetDailyData()
         {
             Console.WriteLine("**************************Local" + _today.ToString());
             Console.WriteLine("**************************Server" + _lastLogin.ToString());
-            if (_lastLogin[_lastLogin.Count -1].LastLogin != _today)
+            if (_lastLogin != _today)
             {
                 App.Manager.currentUser.ConsumedCalories = 0;
-                App.UserItemManager.currentUserLogin.LastLogin = _today;
-                UpdateLastLogin();             
+                UpdateLastLogin();
+
             }
         }
 
         public void UpdateLastLogin()
         {
-
-            App.UserItemManager.currentUserLogin.LastLogin = _today;
-
-            App.UserItemManager.SaveUserLoginAsync(App.UserItemManager.currentUserLogin);
+            App.Manager.currentUser.LastLogin = _today;
+            App.Manager.UpdateUserAsync();
         }
 
     }
