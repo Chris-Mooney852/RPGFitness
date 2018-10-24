@@ -9,39 +9,38 @@ namespace RPGFitness
     public class Clock
     {
         private readonly DateTime _today;
-        private DateTime _lastLogin;
-        private string _currentUserId;
-        private UserLogin _currentUserLogin;
+        private List<UserLogin> _lastLogin;
+      
+        //private UserLogin _currentUserLogin;
 
         public Clock()
-        {
-            _currentUserId = App.Manager.currentUser.UserEmail;
-
+        {         
             _today = DateTime.Today;
-           
-
+            
         }
 
         public async void GetLastUserLogin()
         {
-            _currentUserLogin =  await App.UserItemManager.GetLastLoginAsync(_currentUserId);
-            _lastLogin = _currentUserLogin.LastLogin;
+
+            _lastLogin = await App.UserItemManager.GetLastLoginAsync();
+           
         }
 
         public void ResetDailyData()
         {
             Console.WriteLine("**************************Local" + _today.ToString());
             Console.WriteLine("**************************Server" + _lastLogin.ToString());
-            if (_lastLogin != _today)
+            if (_lastLogin[_lastLogin.Count -1].LastLogin != _today)
             {
                 App.Manager.currentUser.ConsumedCalories = 0;
-                UpdateLastLogin();
-               
+                App.UserItemManager.currentUserLogin.LastLogin = _today;
+                UpdateLastLogin();             
             }
         }
 
         public void UpdateLastLogin()
         {
+
             App.UserItemManager.currentUserLogin.LastLogin = _today;
 
             App.UserItemManager.SaveUserLoginAsync(App.UserItemManager.currentUserLogin);

@@ -43,9 +43,10 @@ namespace RPGFitness.Data
         public async Task<User> ReturnUserAsync(string user)
         {
             currentUser = await restservice.GetUserAsync(user);
-            //Clock = new Clock();
-            //Clock.ResetDailyData();
+            Clock = new Clock();
+            Clock.ResetDailyData();
             return currentUser;
+            
         }
 
         public Task SaveUserAsync(User user)

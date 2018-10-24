@@ -26,6 +26,8 @@ namespace RPGFitness
 
         public static ViewModel viewModel { get; set; }
 
+       
+
       
 
 
@@ -37,6 +39,8 @@ namespace RPGFitness
             UserItemManager = new LocalItemManager(new DBService(dbPath));
 
             
+
+
 
 
             //Make the app a navigation based app

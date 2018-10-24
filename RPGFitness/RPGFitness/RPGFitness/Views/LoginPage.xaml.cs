@@ -51,9 +51,6 @@ namespace RPGFitness.Views
 
 
                     
-                    Clock clock = new Clock();
-                    clock.GetLastUserLogin();
-                    clock.ResetDailyData();
 
                     navManager.ShowMainPage();
                     

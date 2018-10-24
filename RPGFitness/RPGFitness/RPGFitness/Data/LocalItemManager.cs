@@ -50,10 +50,12 @@ namespace RPGFitness.Data
             return localUserservice.SaveLastLoginAsync(login);
         }
 
-        public Task<UserLogin> GetLastLoginAsync(string id)
+        public Task<List<UserLogin>> GetLastLoginAsync()
         {
-            return localUserservice.RefreshLastLoginAsync(id);
+            return localUserservice.ReturnLoginAsync();
         }
+
+     
 
            
     }

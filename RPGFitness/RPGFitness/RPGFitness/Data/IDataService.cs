@@ -18,6 +18,9 @@ namespace RPGFitness.Data
 
         Task SaveLastLoginAsync(UserLogin login);
 
-        Task<UserLogin> RefreshLastLoginAsync(string id);
+        //Task<UserLogin> RefreshLastLoginAsync(string id);
+
+        Task<List<UserLogin>> ReturnLoginAsync();
+        
     }
 }
