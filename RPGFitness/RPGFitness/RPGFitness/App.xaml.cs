@@ -27,6 +27,8 @@ namespace RPGFitness
 
         public static ViewModel viewModel { get; set; }
 
+       
+
       
 
 
@@ -39,6 +41,8 @@ namespace RPGFitness
             Manager = new ItemManager(new RestService());
 
             UserItemManager = new LocalItemManager(new DBService(dbPath));
+
+            
 
 
 

@@ -22,6 +22,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Label x:Name="TotalCalories" Text=""/>
+
 
             <Button Text="Add to Daily Intake" FontSize="Small"
                     Clicked="OnIntakeClicked"

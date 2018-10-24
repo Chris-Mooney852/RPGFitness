@@ -27,6 +27,15 @@ namespace RPGFitness.Views
 
             await App.Manager.SaveUserAsync(App.Manager.newUser);
 
+            //App.UserItemManager.currentUserLogin.UserId = App.Manager.newUser.UserEmail;
+            App.UserItemManager.currentUserLogin.LastLogin = DateTime.Today;
+
+            //Debuging
+            Console.WriteLine("*****************************: {0}", App.UserItemManager.currentUserLogin.LastLogin);
+            
+
+            await App.UserItemManager.SaveUserLoginAsync(App.UserItemManager.currentUserLogin);
+
             navigationManager = Data.PageNavigationManager.Instance;
             navigationManager.ShowLoginPage();
 

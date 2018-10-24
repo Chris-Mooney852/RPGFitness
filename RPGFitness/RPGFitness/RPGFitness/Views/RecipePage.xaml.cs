@@ -40,6 +40,7 @@ namespace RPGFitness.Views
             IngredientsList.ItemsSource = Ingredients;
 
             LoadingLabel.Text = "";
+            TotalCalories.Text = Convert.ToString(App.Manager.TotalCalories);
 
         }
 

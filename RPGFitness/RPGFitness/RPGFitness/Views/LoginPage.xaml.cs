@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using RPGFitness.Data;
@@ -49,6 +48,9 @@ namespace RPGFitness.Views
                 if (currentUser.UserName == NameEntry.Text && currentUser.UserPassword == PasswordEntry.Text)
                 {
                     App.Manager.currentUser = currentUser;
+
+
+                    
 
                     navManager.ShowMainPage();
                     

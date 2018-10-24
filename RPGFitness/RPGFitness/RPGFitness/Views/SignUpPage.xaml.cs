@@ -33,6 +33,7 @@ namespace RPGFitness.Views
             
             App.Manager.newUser.ConsumedCalories = 0;
             App.Manager.newUser.LastLogin = DateTime.Today;
+            
 
             navigationManager = Data.PageNavigationManager.Instance;
             navigationManager.ShowUserDetailPage();

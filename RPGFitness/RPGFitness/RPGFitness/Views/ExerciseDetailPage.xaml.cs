@@ -20,5 +20,16 @@ namespace RPGFitness.Views
             ExerciseType.BindingContext = App.Manager.exerciseItem;
             CaloriesBurned.BindingContext = App.Manager.exerciseItem;
         }
+
+        public async void OnAddClicked(object sender, EventArgs e)
+        {
+            App.UserItemManager.currentUserExercise.Id = null;
+            App.UserItemManager.currentUserExercise.exerciseName = App.Manager.exerciseItem.ex_Name;
+            App.UserItemManager.currentUserExercise.totalCaloriesBurned = App.Manager.exerciseItem.cals_Burned;
+            App.UserItemManager.currentUserExercise.exerciseType = App.Manager.exerciseItem.ex_Type;
+            await App.UserItemManager.SaveUserExerciseAsync(App.UserItemManager.currentUserExercise);
+
+
+        }
     }
 }

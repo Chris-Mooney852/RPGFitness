@@ -29,7 +29,7 @@ namespace RPGFitness
             {
                 App.Manager.currentUser.ConsumedCalories = 0;
                 UpdateLastLogin();
-               
+
             }
         }
 
