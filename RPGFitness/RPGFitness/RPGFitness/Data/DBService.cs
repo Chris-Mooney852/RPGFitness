@@ -58,25 +58,7 @@ namespace RPGFitness.Data
             }
         }
 
-        //public Task<UserLogin> RefreshLastLoginAsync(string id)
-        //{
-        //    return  database.Table<UserLogin>().Where(i => i.UserId == id).FirstOrDefaultAsync();
-        //}
-
-        public Task SaveLastLoginAsync(UserLogin login)
-        {
-
-            login.Id = DateTime.Now.GetHashCode().ToString();  
-            
-            return database.InsertAsync(login);
-
-            
-        }
-
-        public Task<List<UserLogin>> ReturnLoginAsync()
-        {
-            return database.Table<UserLogin>().ToListAsync();
-        }
+        
 
         
 

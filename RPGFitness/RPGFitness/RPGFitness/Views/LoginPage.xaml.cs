@@ -49,13 +49,9 @@ namespace RPGFitness.Views
                 {
                     App.Manager.currentUser = currentUser;
 
-
-                    
-
+                   
                     navManager.ShowMainPage();
                     
-
-
                 }
                 else
                 {
