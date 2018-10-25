@@ -7,15 +7,23 @@
     <ContentPage.Content>
         <StackLayout>
             
-            <Grid>
-                <Label Text="Exercise name: " Grid.Row="1" Grid.Column="0"/>
-                <Label x:Name="ExerciseName" Text="{Binding ex_Name}" Grid.Row="1" Grid.Column="1"/>
+            <Grid >
+                <Label Text="Exercise name: " Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Large"/>
+                <Label x:Name="ExerciseName" Text="{Binding ex_Name}" Grid.Row="1" Grid.Column="1"
+                       FontSize="Large"/>
+                <Label Text=""/>
 
-                <Label Text="Exercise type: " Grid.Row="2" Grid.Column="0"/>
-                <Label x:Name="ExerciseType" Text="{Binding ex_Type}" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Exercise type: " Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="Large"/>
+                <Label x:Name="ExerciseType" Text="{Binding ex_Type}" Grid.Row="2" Grid.Column="1"
+                       FontSize="Large"/>
+                <Label Text=""/>
+                <Label Text=""/>
+                <Label Text=""/>
 
-                <Label Text="Total calories burned per 10 minutes: " Grid.Row="3" Grid.Column="0"/>
-                <Label x:Name="CaloriesBurned" Text="{Binding cals_Burned}" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="Calories burned" Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="Large"/>
+                <Label Text="10 Minutes:" Grid.Row="4" Grid.Column="0" FontAttributes="Bold" FontSize="Large"/>
+                <Label x:Name="CaloriesBurned" Text="{Binding cals_Burned}" Grid.Row="4" Grid.Column="1"
+                       FontSize="Large"/>
 
 
             </Grid>

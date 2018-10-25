@@ -7,22 +7,25 @@
         <StackLayout>
             
             <Grid>
-                <Label Text="Exercise name: " Grid.Row="1" Grid.Column="0"/>
-                <Label x:Name="ExerciseName" Text="{Binding exerciseName}" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Exercise name: " Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="Large"/>
+                <Label x:Name="ExerciseName" Text="{Binding exerciseName}" Grid.Row="1" Grid.Column="1" FontSize="Large"/>
+                <Label Text=""/>
 
-                <Label Text="Exercise type: " Grid.Row="2" Grid.Column="0"/>
-                <Label x:Name="ExerciseType" Text="{Binding exerciseType}" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Exercise type: " Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="Large"/>
+                <Label x:Name="ExerciseType" Text="{Binding exerciseType}" Grid.Row="2" Grid.Column="1" FontSize="Large"/>
+                <Label Text=""/>
+                <Label Text=""/>
 
-                
 
-                
+
+
             </Grid>
 
-            <Label Text="How long did you do this exercise?" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="How long did you do this exercise?" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
             <Entry x:Name="ExerciseLength" Placeholder="Enter exercise time in minutes." TextChanged="ExerciseLength_TextChanged" Keyboard="Numeric"/>
 
-            <Label Text="Total calories you will burn: " HorizontalOptions="Center"/>
-            <Label x:Name="CaloriesBurned" Text="{Binding TotalExerciseCalories}" HorizontalOptions="Center"/>
+            <Label Text="Total calories you will burn: " HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large"/>
+            <Label x:Name="CaloriesBurned" Text="{Binding TotalExerciseCalories}" HorizontalOptions="Center" FontSize="Large"/>
 
 
             <Button Text="Complete Exercise" Clicked="OnCompleteClicked" VerticalOptions="End"/>
