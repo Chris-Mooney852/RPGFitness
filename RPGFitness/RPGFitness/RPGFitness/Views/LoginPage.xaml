@@ -9,7 +9,7 @@
             <StackLayout.BindingContext>
                 <local:ViewModel/>
             </StackLayout.BindingContext>
-            <Image Source="RPGFitness.png" HorizontalOptions="Center" />
+            <Label Text="Welcome to RPG Fitness" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large"/>
             <Label Text="Username" FontSize="Small"
                    HorizontalOptions="Center"/>
             <Entry x:Name="NameEntry"/>
