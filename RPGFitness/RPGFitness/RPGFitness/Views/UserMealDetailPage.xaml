@@ -5,13 +5,15 @@
              Title="Meal Details">
    
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="40,40,40,40">
             
-            <Label Text="Meal Name"/>
-            <Label x:Name="NameLabel" Text="{Binding recipeName}"/>
-            <Label Text="Total Calories"/>
-            <Label x:Name="CalorieLabel" Text="{Binding totCalories}"/>
-            <Button Text="Add to daily intake" Clicked="Button_Clicked"/>
+            <Label Text="Meal Name" FontAttributes="Bold" FontSize="Large"/>
+            <Label x:Name="NameLabel" Text="{Binding recipeName}" FontSize="Large"/>
+            <Label Text=""/>
+            <Label Text="Total Calories" FontAttributes="Bold" FontSize="Large"/>
+            <Label x:Name="CalorieLabel" Text="{Binding totCalories}" FontSize="Large"/>
+            <Label  Text=""/>
+            <Button Text="Add to daily intake" Clicked="Button_Clicked" VerticalOptions="End"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

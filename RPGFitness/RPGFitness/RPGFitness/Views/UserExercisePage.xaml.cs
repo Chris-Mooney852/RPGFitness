@@ -35,6 +35,8 @@ namespace RPGFitness.Views
             navigationManager = Data.PageNavigationManager.Instance;
             App.UserItemManager.currentUserExercise = e.SelectedItem as UserExercise;
             App.Manager.exerciseItem = e.SelectedItem as Exercise;
+            App.Manager.totalBurnedCalories = 0;
+            App.Manager.currentUser.TotalExerciseCalories = 0;
             navigationManager.ShowUserExerciseDetailPage();
         }
     }

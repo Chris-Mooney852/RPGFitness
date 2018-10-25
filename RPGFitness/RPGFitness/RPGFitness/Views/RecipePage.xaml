@@ -3,15 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RPGFitness.Views.RecipePage"
              Title="Meal Contents">
-    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="OnAddMealClicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding RecipeName}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
-                   x:Name="RecipeLabel"/>
+                x:Name="RecipeLabel" FontAttributes="Bold" FontSize="Medium"/>
 
             <Label x:Name="LoadingLabel" Text="   " HorizontalOptions="CenterAndExpand"/>
+            
+            <Label x:Name="TotalLabel" Text="" HorizontalOptions="Center" FontAttributes="Bold"/>
+            <Label x:Name="TotalCalories" Text="" HorizontalOptions="Center"/>
+            
+            
 
             <ListView x:Name="IngredientsList" Margin="20">
                 <ListView.ItemTemplate>
@@ -24,18 +31,18 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label x:Name="TotalCalories" Text=""/>
+
+            <Button Text="Add Calories to Intake" Clicked="OnIntakeClicked" HorizontalOptions="Center"/>
+            <Button Text="Add to Meal Plan" Clicked="OnAddMealClicked" HorizontalOptions="Center"/>
 
 
-            <Button Text="Add to Daily Intake" FontSize="Small"
-                    Clicked="OnIntakeClicked"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            <Button Text="Add to Meal Plan" FontSize="Small"
-                    Clicked="OnAddMealClicked"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-            
+
+
+
+
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
