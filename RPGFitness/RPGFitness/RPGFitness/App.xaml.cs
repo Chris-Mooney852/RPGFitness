@@ -50,6 +50,7 @@ namespace RPGFitness
             //Make the app a navigation based app
             mainPage = new LoginPage();
             MainPage = new NavigationPage(mainPage);
+            
 
             //Assign a navigation object to the pageNavigationManager
             PageNavigationManager.Instance.Navigation = MainPage.Navigation;

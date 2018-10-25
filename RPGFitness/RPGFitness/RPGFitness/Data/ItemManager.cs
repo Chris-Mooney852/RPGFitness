@@ -21,7 +21,7 @@ namespace RPGFitness.Data
         public List<Exercise> currentExercises { get; set; }
         public Exercise exerciseItem { get; set; }
         public User newUser = new User();
-        public int totalBurnedCalories { get; set; }
+        public double totalBurnedCalories { get; set; }
         
 
 
@@ -94,7 +94,7 @@ namespace RPGFitness.Data
 
         public double CalculateBurnedCalories()
         {
-            currentUser.ConsumedCalories -= totalBurnedCalories;
+            currentUser.ConsumedCalories -= (int)totalBurnedCalories;
             UpdateUserAsync();
             return (double)totalBurnedCalories / (double)currentUser.MaxDailyIntake;
         }
