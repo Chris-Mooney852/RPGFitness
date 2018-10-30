@@ -25,8 +25,7 @@ namespace RPGFitness.Views
 
         public  async void OnLoginClicked(object sender, EventArgs e)
         {
-            //var names = await App.Manager.ReturnAllUsersAsync();
-            //App.Manager.currentUsers = names;
+            
 
 
             currentUser = await App.Manager.ReturnUserAsync(NameEntry.Text);
@@ -41,7 +40,7 @@ namespace RPGFitness.Views
             }
             else
             {
-                navManager = Data.PageNavigationManager.Instance;
+                
 
 
 

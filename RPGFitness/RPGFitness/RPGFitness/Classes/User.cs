@@ -9,6 +9,8 @@ namespace RPGFitness
     public class User : INotifyPropertyChanged
 
     {
+        //Declare properties of the user class
+
         public int UserID { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
@@ -24,29 +26,17 @@ namespace RPGFitness
         private double remainingCalories;
         private double totalExerciseCalories;
 
+        //Declare event handler to notify view when property has changed
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-
+        //Construcor for user
         public User() {
             
         }
 
-        public User(int id, string name, string password, string email)
-        {
-            UserID = id;
-            UserName = name;
-            UserPassword = password;
-            UserEmail = email;
-        }
-
-        public User (string name, string password, string email)
-        {
-            UserName = name;
-            UserPassword = password;
-            UserEmail = email;
-        }
-
+       
+        //Accessors for user private properties
         public double _Health
         {
 
@@ -108,6 +98,13 @@ namespace RPGFitness
             }
         }
 
+        /// <summary>
+        /// This method calculates the current users remaining calories by setting the item manager
+        /// property TotalCalories to the value of the current user recipies total calories.
+        /// The method then sets the value of the current users health property using the item manager method 
+        /// CalculateTotalCalories.  Finally the method sets the value of the currentUser RemainingCalories property
+        /// based on the currentUser health.
+        /// </summary>
         public void CalculateCaloriesLeft()
         {
             App.Manager.TotalCalories = App.UserItemManager.currentUserrecipe.totCalories;
@@ -115,8 +112,13 @@ namespace RPGFitness
             App.Manager.currentUser._Health -= App.Manager.CalculateTotalCalories();
 
             App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;
-        }
 
+            
+        }
+        /// <summary>
+        /// Feature to be implemented in future releases
+        /// </summary>
+        /// <returns></returns>
         public uint CalculateCurrentSteps()
         {
             throw new NotImplementedException();

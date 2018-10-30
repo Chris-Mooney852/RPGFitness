@@ -27,9 +27,11 @@ namespace RPGFitness
 
         public static ViewModel viewModel { get; set; }
 
-       
+        public static PageNavigationManager navigationManager { get; set; }
 
-      
+
+
+
 
 
         public App()
@@ -38,11 +40,14 @@ namespace RPGFitness
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzY0NzZAMzEzNjJlMzMyZTMwSDhWM1pMTUJNOFM1SnRYSmYwbjlmUzA5MmlLdDF6SERtSjVLL0s3alIwZz0=");
 
             InitializeComponent();
+
             Manager = new ItemManager(new RestService());
 
             UserItemManager = new LocalItemManager(new DBService(dbPath));
 
-            
+            navigationManager = PageNavigationManager.Instance;
+
+
 
 
 

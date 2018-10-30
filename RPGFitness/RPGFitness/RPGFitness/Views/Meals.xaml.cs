@@ -12,7 +12,7 @@ namespace RPGFitness.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Meals : ContentPage
 	{
-        public static Data.PageNavigationManager navigationManager { get; set; }
+        
 		public Meals ()
 		{
 			InitializeComponent ();
@@ -28,16 +28,16 @@ namespace RPGFitness.Views
 
         void OnMealSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            navigationManager = Data.PageNavigationManager.Instance;
+          
             App.Manager.mealItem = e.SelectedItem as Recipe;
-            navigationManager.ShowRecipeContentsPage();
+            App.navigationManager.ShowRecipeContentsPage();
         }
 
         
         private void OnMyMealsClicked(object sender, EventArgs e)
         {
-            navigationManager = Data.PageNavigationManager.Instance;
-            navigationManager.ShowMyMealPlanPage();
+            
+            App.navigationManager.ShowMyMealPlanPage();
 
         }
     }

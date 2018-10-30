@@ -13,7 +13,7 @@ namespace RPGFitness.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HomePage : ContentPage
 	{
-        //public double remainingHealth = (double)App.Manager.currentUser.MaxDailyIntake / 2000;
+        
 
 		public HomePage ()
 		{
@@ -40,9 +40,9 @@ namespace RPGFitness.Views
             //Bind the goal weight label to the current user
             GoalLabel.BindingContext = App.Manager.currentUser;
 
-            //CalorieLabel.BindingContext = App.Manager.currentUser;
+           
 
-            CalorieLabel.BindingContext = App.Manager.currentUser;//Convert.ToString(App.Manager.currentUser.RemainingCalories);
+            CalorieLabel.BindingContext = App.Manager.currentUser;
 
 
         }
