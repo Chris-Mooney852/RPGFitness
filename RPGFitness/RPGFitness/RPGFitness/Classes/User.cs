@@ -88,16 +88,19 @@ namespace RPGFitness
         /// CalculateTotalCalories.  Finally the method sets the value of the currentUser RemainingCalories property
         /// based on the currentUser health.
         /// </summary>
-        public void CalculateCaloriesLeft()
+        public void CalculateRemainingCalories()
         {
-            App.Manager.mealItem.TotalCalories = App.UserItemManager.currentUserrecipe.totCalories;
 
-            App.Manager.currentUser._Health -= App.Manager.CalculateTotalCalories();
+
+            App.Manager.currentUser._Health -= App.UserItemManager.currentUserrecipe.ConvertTotalCalories();
+
+            App.UserItemManager.currentUserrecipe.UpdateUserCalories();
 
             App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;
 
             
         }
+
 
 
         /// <summary>

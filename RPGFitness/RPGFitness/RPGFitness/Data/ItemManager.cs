@@ -20,6 +20,8 @@ namespace RPGFitness.Data
 
         public Recipe mealItem { get; set; }
 
+        
+
         public Clock Clock { get; set; }
 
         public List<Exercise> currentExercises { get; set; }
@@ -87,12 +89,7 @@ namespace RPGFitness.Data
             return currentIngredients;
         }
 
-        public double CalculateTotalCalories()
-        {
-            currentUser.ConsumedCalories += mealItem.TotalCalories;
-            UpdateUserAsync();
-            return (double)mealItem.TotalCalories / (double)currentUser.MaxDailyIntake;
-        }
+        
 
         public Task<List<Exercise>> ReturnExercises()
         {

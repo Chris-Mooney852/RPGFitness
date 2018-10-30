@@ -50,15 +50,9 @@ namespace RPGFitness.Views
 
         }
 
-        public async void OnIntakeClicked(object sender, EventArgs e)
-        {
-            App.Manager.currentUser._Health -= App.Manager.CalculateTotalCalories();
-            App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;
-            
-            App.Manager.mealItem.TotalCalories = 0;
-            await Navigation.PopAsync();
-        }
-
+       
+        
+        //Might need to clean this up a bit ************************
         public async void OnAddMealClicked(object sender, EventArgs e)
         {
             App.UserItemManager.currentUserrecipe.Id = null;

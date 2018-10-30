@@ -17,7 +17,7 @@ namespace RPGFitness.Data
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<UserRecipe>().Wait();
             database.CreateTableAsync<UserExercise>().Wait();
-            //database.CreateTableAsync<UserLogin>().Wait();
+           
         }
 
         public Task<List<UserRecipe>> RefreshRecipesAsync()

@@ -28,8 +28,7 @@ namespace RPGFitness.Views
         private void AddCaloriesClicked(object sender, EventArgs e)
 
         {
-
-            App.Manager.currentUser.CalculateCaloriesLeft();
+            App.Manager.currentUser.CalculateRemainingCalories();
 
             Navigation.PopAsync();
 

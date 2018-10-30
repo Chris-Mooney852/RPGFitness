@@ -28,7 +28,7 @@ namespace RPGFitness.Classes
         public void CalculateCaloriesBurned()
         {
             
-            App.Manager.currentUser._Health += CalculateBurnedCalories();
+            App.Manager.currentUser._Health += ConvertBurnedCalories();
 
             UpdateUserCalories();
 
@@ -42,7 +42,7 @@ namespace RPGFitness.Classes
         /// users max daily intake so that it may be displayed by the health bar.
         /// </summary>
         /// <returns></returns>
-        public double CalculateBurnedCalories()
+        public double ConvertBurnedCalories()
         {
             return (double)App.UserItemManager.currentUserExercise.totalExerciseCalories / (double)App.Manager.currentUser.MaxDailyIntake;
         }
@@ -56,10 +56,7 @@ namespace RPGFitness.Classes
             App.Manager.UpdateUserAsync();
         }
 
-        public class Rootobject
-        {
-            public UserExercise[] items { get; set; }
-        }
+       
 
         // Accessor for the total exercise calories property.
         public double TotalExerciseCalories
