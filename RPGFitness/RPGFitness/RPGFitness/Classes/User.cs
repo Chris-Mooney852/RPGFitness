@@ -9,7 +9,7 @@ namespace RPGFitness
     public class User : INotifyPropertyChanged
 
     {
-        //Declare properties of the user class
+        //Declare variables of the user class
 
         public int UserID { get; set; }
         public string UserName { get; set; }
@@ -22,9 +22,10 @@ namespace RPGFitness
         public Nullable<int> TargetDailySteps { get; set; }
         public Nullable<int> CurrentSteps { get; set; }
         public Nullable<DateTime> LastLogin { get; set; }
+
+        //Variables used to display users remaining calories
         private double Health;
         private double remainingCalories;
-        private double totalExerciseCalories;
 
         //Declare event handler to notify view when property has changed
         public event PropertyChangedEventHandler PropertyChanged;
@@ -78,25 +79,7 @@ namespace RPGFitness
             }
         }
 
-        public double TotalExerciseCalories
-        {
-            set
-            {
-                if (totalExerciseCalories != value)
-                {
-                    totalExerciseCalories = value;
-                    if (PropertyChanged != null)
-                    {
-                        PropertyChanged(this, new PropertyChangedEventArgs("TotalExerciseCalories"));
-                    }
-                }
-
-            }
-            get
-            {
-                return totalExerciseCalories;
-            }
-        }
+        
 
         /// <summary>
         /// This method calculates the current users remaining calories by setting the item manager
@@ -107,7 +90,7 @@ namespace RPGFitness
         /// </summary>
         public void CalculateCaloriesLeft()
         {
-            App.Manager.TotalCalories = App.UserItemManager.currentUserrecipe.totCalories;
+            App.Manager.mealItem.TotalCalories = App.UserItemManager.currentUserrecipe.totCalories;
 
             App.Manager.currentUser._Health -= App.Manager.CalculateTotalCalories();
 
@@ -115,6 +98,8 @@ namespace RPGFitness
 
             
         }
+
+
         /// <summary>
         /// Feature to be implemented in future releases
         /// </summary>

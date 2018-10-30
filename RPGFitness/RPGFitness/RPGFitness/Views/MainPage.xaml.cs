@@ -13,12 +13,10 @@ namespace RPGFitness
         public MainPage()
         {
             InitializeComponent();
+
             RestService rest = new RestService();
             NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
-
-
-            
 
         }
 

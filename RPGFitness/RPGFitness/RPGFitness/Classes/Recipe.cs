@@ -8,6 +8,7 @@ namespace RPGFitness
     {
         public int RecipeId { get; set; }
         public string RecipeName { get; set; }
+        public int TotalCalories { get; set; }
 
         /// <summary>
         /// Converts Recipe into printable string
@@ -17,5 +18,6 @@ namespace RPGFitness
         {
             return String.Format("ID: {0} Name: {1}", RecipeId, RecipeName);
         }
+
     }
 }
