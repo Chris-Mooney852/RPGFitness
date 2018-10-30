@@ -12,7 +12,7 @@ namespace RPGFitness.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class UserDetailsPage : ContentPage
 	{
-        public static Data.PageNavigationManager navigationManager { get; set; }
+        
 
         public UserDetailsPage ()
 		{
@@ -29,8 +29,8 @@ namespace RPGFitness.Views
 
                 await App.Manager.SaveUserAsync(App.Manager.newUser);
 
-                navigationManager = Data.PageNavigationManager.Instance;
-                navigationManager.ShowLoginPage();
+                
+                App.navigationManager.ShowLoginPage();
 
             }
             catch (FormatException)

@@ -17,10 +17,7 @@ namespace RPGFitness
             NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
 
-            
-            
-            //Ingredient ingredient = new Ingredient(1, "coke vanilla", 1000);
-            //rest.showUser(3);
+
             
 
         }

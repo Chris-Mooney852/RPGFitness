@@ -12,7 +12,7 @@ namespace RPGFitness.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SignUpPage : ContentPage
 	{
-        public static Data.PageNavigationManager navigationManager { get; set; }
+        
 
         public SignUpPage ()
 		{
@@ -35,8 +35,8 @@ namespace RPGFitness.Views
             App.Manager.newUser.LastLogin = DateTime.Today;
             
 
-            navigationManager = Data.PageNavigationManager.Instance;
-            navigationManager.ShowUserDetailPage();
+           
+            App.navigationManager.ShowUserDetailPage();
 
 
         }

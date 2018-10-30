@@ -12,7 +12,7 @@ namespace RPGFitness.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class UserMealsPage : ContentPage
 	{
-        public static Data.PageNavigationManager navigationManager { get; set; }
+        
 
         public UserMealsPage ()
 		{
@@ -29,15 +29,15 @@ namespace RPGFitness.Views
 
         private void AddRecipeClicked(object sender, EventArgs e)
         {
-            navigationManager = Data.PageNavigationManager.Instance;
-            navigationManager.ShowCreateRecipePage();
+            
+            App.navigationManager.ShowCreateRecipePage();
         }
 
         void OnMealSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            navigationManager = Data.PageNavigationManager.Instance;
+            
             App.UserItemManager.currentUserrecipe = e.SelectedItem as UserRecipe;
-            navigationManager.ShowUserRecipeDetailPage();
+            App.navigationManager.ShowUserRecipeDetailPage();
         }
 
 
