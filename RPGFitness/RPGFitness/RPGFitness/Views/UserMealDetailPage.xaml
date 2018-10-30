@@ -8,12 +8,12 @@
         <StackLayout Padding="40,40,40,40">
             
             <Label Text="Meal Name" FontAttributes="Bold" FontSize="Large"/>
-            <Label x:Name="NameLabel" Text="{Binding recipeName}" FontSize="Large"/>
+            <Label x:Name="NameLabel" Text="{Binding recipeName}" FontSize="Medium"/>
             <Label Text=""/>
             <Label Text="Total Calories" FontAttributes="Bold" FontSize="Large"/>
-            <Label x:Name="CalorieLabel" Text="{Binding totCalories}" FontSize="Large"/>
+            <Label x:Name="CalorieLabel" Text="{Binding totCalories}" FontSize="Medium"/>
             <Label  Text=""/>
-            <Button Text="Add to daily intake" Clicked="Button_Clicked" VerticalOptions="End"/>
+            <Button Text="Add to daily intake" Clicked="OnAddCaloriesClicked" VerticalOptions="End"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -25,16 +25,10 @@ namespace RPGFitness.Views
 
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void OnAddCaloriesClicked(object sender, EventArgs e)
 
         {
-            
-
-            App.Manager.TotalCalories = App.UserItemManager.currentUserrecipe.totCalories;
-
-            App.Manager.currentUser._Health -= App.Manager.CalculateTotalCalories();
-
-            App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;
+            App.Manager.currentUser.CalculateCaloriesLeft();
 
             Navigation.PopAsync();
 
