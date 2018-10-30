@@ -13,7 +13,7 @@
             <Label Text="Total Calories" FontAttributes="Bold" FontSize="Large"/>
             <Label x:Name="CalorieLabel" Text="{Binding totCalories}" FontSize="Large"/>
             <Label  Text=""/>
-            <Button Text="Add to daily intake" Clicked="Button_Clicked" VerticalOptions="End"/>
+            <Button Text="Add to daily intake" Clicked="AddCaloriesClicked" VerticalOptions="End"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

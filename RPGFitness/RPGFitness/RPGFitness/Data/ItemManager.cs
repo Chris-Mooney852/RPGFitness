@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPGFitness.Data
 {
-    public class ItemManager
+    public class ItemManager 
     {
         IRestService restservice;
 

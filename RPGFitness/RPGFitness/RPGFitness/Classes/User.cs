@@ -108,9 +108,13 @@ namespace RPGFitness
             }
         }
 
-        public uint CalculateCaloriesLeft()
+        public void CalculateCaloriesLeft()
         {
-            throw new NotImplementedException();
+            App.Manager.TotalCalories = App.UserItemManager.currentUserrecipe.totCalories;
+
+            App.Manager.currentUser._Health -= App.Manager.CalculateTotalCalories();
+
+            App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;
         }
 
         public uint CalculateCurrentSteps()
