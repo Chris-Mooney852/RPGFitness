@@ -24,6 +24,7 @@ namespace RPGFitness.Views
         {
             base.OnAppearing();
 
+            //List the current users exercises stored in the SqLite database
             listView.ItemsSource = await App.UserItemManager.GetUserExerciseAsync();
 
         }
@@ -33,10 +34,9 @@ namespace RPGFitness.Views
         void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
         {
             
+            //Set the currently selected item to the UserItemManagers currentUserExercise property.
             App.UserItemManager.currentUserExercise = e.SelectedItem as UserExercise;
-            App.Manager.exerciseItem = e.SelectedItem as Exercise;
-            App.Manager.totalBurnedCalories = 0;
-            App.Manager.currentUser.TotalExerciseCalories = 0;
+                       
             App.navigationManager.ShowUserExerciseDetailPage();
         }
     }

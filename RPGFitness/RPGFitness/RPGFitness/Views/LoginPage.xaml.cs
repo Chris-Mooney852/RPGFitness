@@ -26,11 +26,7 @@ namespace RPGFitness.Views
         public  async void OnLoginClicked(object sender, EventArgs e)
         {
             
-
-
             currentUser = await App.Manager.ReturnUserAsync(NameEntry.Text);
-
-          
 
             navManager = Data.PageNavigationManager.Instance;
 
@@ -41,20 +37,12 @@ namespace RPGFitness.Views
             else
             {
                 
-
-
-
                 if (currentUser.UserName == NameEntry.Text && currentUser.UserPassword == PasswordEntry.Text)
                 {
                     App.Manager.currentUser = currentUser;
 
-
-                    
-
                     navManager.ShowMainPage();
                     
-
-
                 }
                 else
                 {

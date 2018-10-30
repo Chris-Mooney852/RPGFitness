@@ -29,6 +29,7 @@ namespace RPGFitness.Views
             App.UserItemManager.currentUserExercise.exerciseName = App.Manager.exerciseItem.ex_Name;
             App.UserItemManager.currentUserExercise.totalCaloriesBurned = App.Manager.exerciseItem.cals_Burned;
             App.UserItemManager.currentUserExercise.exerciseType = App.Manager.exerciseItem.ex_Type;
+
             await App.UserItemManager.SaveUserExerciseAsync(App.UserItemManager.currentUserExercise);
 
             

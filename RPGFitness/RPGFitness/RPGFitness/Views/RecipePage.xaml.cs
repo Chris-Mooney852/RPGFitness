@@ -16,32 +16,37 @@ namespace RPGFitness.Views
         public List<Ingredient> Ingredients;
 
         public RecipePage ()
-		{
-            
+		{           
 			InitializeComponent ();
             
-
-
 		}
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
 
+            //Display a loading message while the ingredients list loads
             if (Ingredients == null)
             {
                 LoadingLabel.Text = "Loading....";
             }
            
-
+            //Populate the list of ingredients with items from the Azure database
             Ingredients = await App.Manager.ReturnRecipeIngredients(App.Manager.mealItem);
 
+            //Bind the recipe label to the name of the current recipe
             RecipeLabel.BindingContext = App.Manager.mealItem;
+
+            //Bind the views list of ingredients to the current recipes list of ingredients
             IngredientsList.ItemsSource = Ingredients;
 
+            //Remove the loading message
             LoadingLabel.Text = "";
+
             TotalLabel.Text = "Total Calories:";
-            TotalCalories.Text = Convert.ToString(App.Manager.TotalCalories);
+
+            //Display the total ingredients for the recipe
+            TotalCalories.Text = Convert.ToString(App.Manager.mealItem.TotalCalories);
 
         }
 
@@ -49,9 +54,8 @@ namespace RPGFitness.Views
         {
             App.Manager.currentUser._Health -= App.Manager.CalculateTotalCalories();
             App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;
-            Console.WriteLine("***************** Current Calories {0}", App.Manager.currentUser.ConsumedCalories);
-            Console.WriteLine("**************** current user health: {0}", App.Manager.currentUser._Health);
-            App.Manager.TotalCalories = 0;
+            
+            App.Manager.mealItem.TotalCalories = 0;
             await Navigation.PopAsync();
         }
 
@@ -59,9 +63,12 @@ namespace RPGFitness.Views
         {
             App.UserItemManager.currentUserrecipe.Id = null;
             App.UserItemManager.currentUserrecipe.recipeName = App.Manager.mealItem.RecipeName;
-            App.UserItemManager.currentUserrecipe.totCalories = App.Manager.TotalCalories;
+            App.UserItemManager.currentUserrecipe.totCalories = App.Manager.mealItem.TotalCalories;
+
             await App.UserItemManager.SaveUserRecipeAsync(App.UserItemManager.currentUserrecipe);
-            App.Manager.TotalCalories = 0;
+
+            App.Manager.mealItem.TotalCalories = 0;
+
             await Navigation.PopAsync();
 
         }
