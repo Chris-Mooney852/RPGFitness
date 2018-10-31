@@ -11,6 +11,9 @@ namespace RPGFitness
         private readonly DateTime _today;
         private DateTime _lastLogin;
 
+        /// <summary>
+        /// Creates a new clock with todays date, also fetches the last login date from the server
+        /// </summary>
         public Clock()
         {
             _today = DateTime.Today;
@@ -21,6 +24,9 @@ namespace RPGFitness
 
         }
 
+        /// <summary>
+        /// Resets the users data if its a new day since the last login
+        /// </summary>
         public void ResetDailyData()
         {
             Console.WriteLine("**************************Local" + _today.ToString());
@@ -33,6 +39,9 @@ namespace RPGFitness
             }
         }
 
+        /// <summary>
+        /// Updates the users last login to today
+        /// </summary>
         public void UpdateLastLogin()
         {
             App.Manager.currentUser.LastLogin = _today;
