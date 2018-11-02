@@ -34,7 +34,7 @@ namespace RPGFitness.Views
             await App.UserItemManager.SaveUserExerciseAsync(App.UserItemManager.currentUserExercise);
             
             //Navigate to the user exercise plan.
-            App.navigationManager.ShowUserExerciseDetailPage();
+            App.navigationManager.ShowUserExercisePage();
 
         }
     }
