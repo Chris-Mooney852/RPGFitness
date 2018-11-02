@@ -9,30 +9,29 @@
             <StackLayout.BindingContext>
                 <local:ViewModel/>
             </StackLayout.BindingContext>
-            <Image Source="RPGFitness.png" HorizontalOptions="Center" />
-            <Label Text="Username" FontSize="Small"
-                   HorizontalOptions="Center"/>
-            <Entry x:Name="NameEntry"/>
-            <Label Text="Password" FontSize="Small"
-                   HorizontalOptions="Center" />
-            <Entry x:Name="PasswordEntry" IsPassword="True"/>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="RPGFitness.png" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4"/>
+                <Entry x:Name="NameEntry" Grid.Row="5" Grid.ColumnSpan="4" Grid.RowSpan="2" Placeholder="Username" PlaceholderColor="#808080" 
+                       VerticalOptions="FillAndExpand"/>
+                <Entry x:Name="PasswordEntry" IsPassword="True" Grid.Row="7" Grid.RowSpan="2" Grid.ColumnSpan="4" Placeholder="Password" PlaceholderColor="#808080" 
+                       VerticalOptions="FillAndExpand"/>
 
-            <Button Text="Login" FontSize="Small"
+                <Button Text="Login" FontSize="Small"
                     Clicked="OnLoginClicked"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    WidthRequest="120"
-                    HeightRequest="50"
-                    />
-            <Label x:Name="SuccessLabel" Text="" HorizontalOptions="Center"
-                   TextColor="Red"/>
-            <Label Text="Don't have an account?" FontSize="Small" HorizontalOptions="Center"/>
-            <Button Text="Sign Up" FontSize="Small"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Grid.Row="9" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Label x:Name="SuccessLabel" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   TextColor="Red" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Label Text="Don't have an account?" FontSize="Small" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                       Grid.Row="12" Grid.Column="1" 
+                       Grid.ColumnSpan="3"/>
+                <Button Text="Sign Up" FontSize="Small"
                     Command="{Binding SignUPageClickCommand }"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    WidthRequest="120"/>
-
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Grid.Row="13" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+            </Grid>
 
 
         </StackLayout>

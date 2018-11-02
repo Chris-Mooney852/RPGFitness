@@ -297,22 +297,6 @@ namespace RPGFitness.Data
         }
 
         /// <summary>
-        /// Adds new recipe to the database
-        /// </summary>
-        /// <param name="recipe">Recipe to be added</param>
-        /// <param name="ingredients">List of ingredients in recipe</param>
-        /// <returns>URI of new Recipe</returns>
-        public Task<Uri> CreateRecipeAsync(Recipe recipe, List<Ingredient> ingredients)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Recipe> UpdateRecipeAsync(Recipe recipe, List<Ingredient> ingredients)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// Retrieves Recipe contents
         /// </summary>
         /// <returns>List of contents in recipe</returns>
@@ -342,6 +326,11 @@ namespace RPGFitness.Data
             return RecipeContents;
         }
 
+
+        /// <summary>
+        /// Retrevies list of exercises from the database
+        /// </summary>
+        /// <returns>List of exercises</returns>
         public async Task<List<Exercise>> GetExercisesAsync()
         {
             var uri = new Uri(string.Format(Constraints.RestUrl + "Exercise/"));
