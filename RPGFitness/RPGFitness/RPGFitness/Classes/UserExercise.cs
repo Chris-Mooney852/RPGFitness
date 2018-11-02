@@ -58,7 +58,9 @@ namespace RPGFitness.Classes
 
        
 
-        // Accessor for the total exercise calories property.
+        /// <summary>
+        /// Getter and setter for Total exercise calories
+        /// </summary>
         public double TotalExerciseCalories
         {
             set
