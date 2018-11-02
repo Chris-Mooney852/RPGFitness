@@ -9,30 +9,31 @@
             <StackLayout.BindingContext>
                 <local:ViewModel/>
             </StackLayout.BindingContext>
-            <Image Source="RPGFitness.png" HorizontalOptions="FillAndExpand"  />
-            <Label Text="Username" FontSize="Small"
-                   HorizontalOptions="Center"/>
-            <Entry x:Name="NameEntry"/>
-            <Label Text="Password" FontSize="Small"
-                   HorizontalOptions="Center" />
-            <Entry x:Name="PasswordEntry" IsPassword="True"/>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="RPGFitness.png" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" />
+                <Label Text="Username" FontSize="Small"
+                   HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+                <Entry x:Name="NameEntry" Grid.Row="2"/>
+                <Label Text="Password" FontSize="Small"
+                   HorizontalOptions="Center" Grid.Row="3"/>
+                <Entry x:Name="PasswordEntry" IsPassword="True" Grid.Row="4"/>
 
-            <Button Text="Login" FontSize="Small"
+                <Button Text="Login" FontSize="Small"
                     Clicked="OnLoginClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     WidthRequest="120"
                     HeightRequest="50"
-                    />
-            <Label x:Name="SuccessLabel" Text="" HorizontalOptions="Center"
-                   TextColor="Red"/>
-            <Label Text="Don't have an account?" FontSize="Small" HorizontalOptions="Center"/>
-            <Button Text="Sign Up" FontSize="Small"
+                    Grid.Row="5"/>
+                <Label x:Name="SuccessLabel" Text="" HorizontalOptions="Center"
+                   TextColor="Red" Grid.Row="6"/>
+                <Label Text="Don't have an account?" FontSize="Small" HorizontalOptions="Center" Grid.Row="7"/>
+                <Button Text="Sign Up" FontSize="Small"
                     Command="{Binding SignUPageClickCommand }"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    WidthRequest="120"/>
-
+                    WidthRequest="120" Grid.Row="8"/>
+            </Grid>
 
 
         </StackLayout>
