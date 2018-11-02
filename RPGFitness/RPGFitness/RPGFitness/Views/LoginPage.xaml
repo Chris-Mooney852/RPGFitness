@@ -20,17 +20,17 @@
                     Clicked="OnLoginClicked"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand"
-                    Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    Grid.Row="9" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <Label x:Name="SuccessLabel" Text="" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                   TextColor="Red" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"/>
+                   TextColor="Red" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <Label Text="Don't have an account?" FontSize="Small" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
-                       Grid.Row="11" Grid.Column="1" 
-                       Grid.ColumnSpan="2"/>
+                       Grid.Row="12" Grid.Column="1" 
+                       Grid.ColumnSpan="3"/>
                 <Button Text="Sign Up" FontSize="Small"
                     Command="{Binding SignUPageClickCommand }"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand"
-                    Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    Grid.Row="13" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
             </Grid>
 
 
