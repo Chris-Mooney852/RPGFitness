@@ -10,13 +10,9 @@
                 <local:ViewModel/>
             </StackLayout.BindingContext>
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <Image Source="RPGFitness.png" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" />
-                <Label Text="Username" FontSize="Small"
-                   HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"/>
-                <Entry x:Name="NameEntry" Grid.Row="2"/>
-                <Label Text="Password" FontSize="Small"
-                   HorizontalOptions="Center" Grid.Row="3"/>
-                <Entry x:Name="PasswordEntry" IsPassword="True" Grid.Row="4"/>
+                <Image Source="RPGFitness.png" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4"/>
+                <Entry x:Name="NameEntry" Grid.Row="5" Grid.ColumnSpan="4" Placeholder="Username" PlaceholderColor="#808080"/>
+                <Entry x:Name="PasswordEntry" IsPassword="True" Grid.Row="7" Grid.ColumnSpan="4" Placeholder="Password" PlaceholderColor="#808080"/>
 
                 <Button Text="Login" FontSize="Small"
                     Clicked="OnLoginClicked"
@@ -24,15 +20,15 @@
                     VerticalOptions="Center"
                     WidthRequest="120"
                     HeightRequest="50"
-                    Grid.Row="5"/>
+                    Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <Label x:Name="SuccessLabel" Text="" HorizontalOptions="Center"
-                   TextColor="Red" Grid.Row="6"/>
-                <Label Text="Don't have an account?" FontSize="Small" HorizontalOptions="Center" Grid.Row="7"/>
+                   TextColor="Red" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Label Text="Don't have an account?" FontSize="Small" HorizontalOptions="Center" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <Button Text="Sign Up" FontSize="Small"
                     Command="{Binding SignUPageClickCommand }"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    WidthRequest="120" Grid.Row="8"/>
+                    WidthRequest="120" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2"/>
             </Grid>
 
 
