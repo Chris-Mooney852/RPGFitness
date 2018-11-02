@@ -13,22 +13,7 @@
             <Label x:Name="NameLabel" Text="{Binding UserName}"
                 HorizontalOptions="Center"/>
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <!--<Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120" />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>-->
                 <Image Source="profile.png" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                <!--WidthRequest="120" HeightRequest="120"/>-->
                 <ProgressBar:SfLinearProgressBar x:Name="UserHealth" Minimum="0" Progress="{Binding _Health}" Maximum="1" TrackHeight="25"
                                                  Padding="2" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="10">
                     <ProgressBar:SfLinearProgressBar.RangeColors>

@@ -37,7 +37,9 @@ namespace RPGFitness
         }
 
        
-        //Accessors for user private properties
+        /// <summary>
+        /// Getter and setter for user health
+        /// </summary>
         public double _Health
         {
 
@@ -59,6 +61,9 @@ namespace RPGFitness
             }
         }
 
+        /// <summary>
+        /// Getter and setter for users remaining daily calories
+        /// </summary>
         public double RemainingCalories
         {
             set
