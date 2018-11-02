@@ -18,9 +18,6 @@ namespace RPGFitness.Data
 
         public List<UserExercise> currentUserExercises { get; set; }
 
-        //public int currentUserExerciseTotalCalories { get; set; }
-
-     
 
         public LocalItemManager (IDataService service)
         {

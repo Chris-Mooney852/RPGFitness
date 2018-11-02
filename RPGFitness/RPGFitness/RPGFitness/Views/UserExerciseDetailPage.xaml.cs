@@ -22,7 +22,7 @@ namespace RPGFitness.Views
 		}
 
        
-
+        //calculate the calories burned and add to users current health (daily intake)
         public async void OnCompleteClicked(object sender, EventArgs e)
         {
 
@@ -31,15 +31,17 @@ namespace RPGFitness.Views
             await Navigation.PopAsync();
         }
 
+        //Calculate the calories the user will burn based on the length of the exercise time
         private void ExerciseLength_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                App.UserItemManager.currentUserExercise.TotalExerciseCalories = Convert.ToDouble(ExerciseLength.Text) * (App.UserItemManager.currentUserExercise.totalCaloriesBurned / 10);
+                App.UserItemManager.currentUserExercise.TotalExerciseCalories = Convert.ToDouble(ExerciseLength.Text) 
+                    * (App.UserItemManager.currentUserExercise.totalCaloriesBurned / 10);
             }
             catch(Exception)
             {
-
+                //Do nothing
             } 
           
         }

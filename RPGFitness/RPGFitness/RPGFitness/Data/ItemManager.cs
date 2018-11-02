@@ -10,28 +10,17 @@ namespace RPGFitness.Data
     {
         IRestService restservice;
 
-
-
         public List<Ingredient> currentIngredients { get; set; }
-
-        public List<Recipe> currentRecipes { get; set;}
-
-        public User currentUser { get; set; }
-
+        public List<Recipe> currentRecipes { get; set;}       
         public Recipe mealItem { get; set; }
 
-        
-
-        public Clock Clock { get; set; }
-
         public List<Exercise> currentExercises { get; set; }
-
         public Exercise exerciseItem { get; set; }
 
         public User newUser = new User();
-       
-         
-        
+        public User currentUser { get; set; }
+
+        public Clock Clock { get; set; }
 
 
         public ItemManager(IRestService service)
@@ -52,8 +41,13 @@ namespace RPGFitness.Data
         public async Task<User> ReturnUserAsync(string user)
         {
             currentUser = await restservice.GetUserAsync(user);
+            
+            //The below code has been commented out due to discrepencies with the 
+            //time on the azure server and the local time.  
+
             //Clock = new Clock();
             //Clock.ResetDailyData();
+
             return currentUser;
             
         }
@@ -67,6 +61,7 @@ namespace RPGFitness.Data
         {
             restservice.UpdateUserAsync(currentUser);
         }
+
 
         public async Task<List<Ingredient>> ReturnRecipeIngredients(Recipe recipe)
         {
@@ -89,13 +84,10 @@ namespace RPGFitness.Data
             return currentIngredients;
         }
 
-        
-
         public Task<List<Exercise>> ReturnExercises()
         {
             return restservice.GetExercisesAsync();
         }
-
         
     }
 }

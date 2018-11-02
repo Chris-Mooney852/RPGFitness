@@ -12,7 +12,7 @@ namespace RPGFitness
 {
     public partial class App : Application
     {        
-
+        //Define the path to the database
         string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "UserSQLite.db3");
 
         //create item manger for web API
@@ -22,8 +22,6 @@ namespace RPGFitness
         public static LocalItemManager UserItemManager { get; set; }
 
         private ContentPage mainPage;
-
-        public static PageNavigationManager navManager { get; set; }
 
         public static ViewModel viewModel { get; set; }
 
@@ -46,11 +44,6 @@ namespace RPGFitness
             UserItemManager = new LocalItemManager(new DBService(dbPath));
 
             navigationManager = PageNavigationManager.Instance;
-
-
-
-
-
 
             //Make the app a navigation based app
             mainPage = new LoginPage();

@@ -22,9 +22,9 @@ namespace RPGFitness.Views
             base.OnAppearing();
             NameLabel.BindingContext = App.UserItemManager.currentUserrecipe;
             CalorieLabel.BindingContext = App.UserItemManager.currentUserrecipe;
-
         }
 
+        //Calculate the remaining calories and update users health (daily intake)
         private void AddCaloriesClicked(object sender, EventArgs e)
 
         {

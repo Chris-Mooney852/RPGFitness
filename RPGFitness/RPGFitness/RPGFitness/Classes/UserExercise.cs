@@ -26,15 +26,12 @@ namespace RPGFitness.Classes
         /// on the home page and saved to the user information in the databse.
         /// </summary>
         public void CalculateCaloriesBurned()
-        {
-            
+        {            
             App.Manager.currentUser._Health += ConvertBurnedCalories();
 
             UpdateUserCalories();
 
-            App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;
-
-            
+            App.Manager.currentUser.RemainingCalories = App.Manager.currentUser._Health * (double)App.Manager.currentUser.MaxDailyIntake;           
         }
 
         /// <summary>

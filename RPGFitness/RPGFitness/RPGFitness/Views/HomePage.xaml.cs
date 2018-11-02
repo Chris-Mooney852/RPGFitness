@@ -40,8 +40,6 @@ namespace RPGFitness.Views
             //Bind the goal weight label to the current user
             GoalLabel.BindingContext = App.Manager.currentUser;
 
-           
-
             CalorieLabel.BindingContext = App.Manager.currentUser;
 
 

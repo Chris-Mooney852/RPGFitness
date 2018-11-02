@@ -17,8 +17,7 @@ namespace RPGFitness.Views
 
         public RecipePage ()
 		{           
-			InitializeComponent ();
-            
+			InitializeComponent ();          
 		}
 
         protected async override void OnAppearing()
@@ -50,9 +49,9 @@ namespace RPGFitness.Views
 
         }
 
-       
-        
-        //Might need to clean this up a bit ************************
+             
+        //Set the current user recipe to the selected recipe and save to the 
+        //local database
         public async void OnAddMealClicked(object sender, EventArgs e)
         {
             App.UserItemManager.currentUserrecipe.Id = null;
@@ -61,6 +60,7 @@ namespace RPGFitness.Views
 
             await App.UserItemManager.SaveUserRecipeAsync(App.UserItemManager.currentUserrecipe);
 
+            //Reset the total calories
             App.Manager.mealItem.TotalCalories = 0;
 
             await Navigation.PopAsync();

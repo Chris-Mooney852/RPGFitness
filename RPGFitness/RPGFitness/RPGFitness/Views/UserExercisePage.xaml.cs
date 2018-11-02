@@ -29,16 +29,14 @@ namespace RPGFitness.Views
 
         }
 
-       
-
         void OnExerciseSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            
+        {           
             //Set the currently selected item to the UserItemManagers currentUserExercise property.
             App.UserItemManager.currentUserExercise = e.SelectedItem as UserExercise;
              
             //Navigate to the exercise detail page. 
             App.navigationManager.ShowUserExerciseDetailPage();
+            
         }
     }
 }

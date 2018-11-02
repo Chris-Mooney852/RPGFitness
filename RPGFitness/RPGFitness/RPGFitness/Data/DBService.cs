@@ -12,6 +12,10 @@ namespace RPGFitness.Data
 
         readonly SQLiteAsyncConnection database;
 
+        /// <summary>
+        /// Create the tables in the SqLite local database
+        /// </summary>
+        /// <param name="dbPath"> Path for the local database </param>
         public DBService(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
@@ -20,11 +24,13 @@ namespace RPGFitness.Data
            
         }
 
+        //Return the UserRecipe table in the local database
         public Task<List<UserRecipe>> RefreshRecipesAsync()
         {
             return database.Table<UserRecipe>().ToListAsync();
         }
 
+        //Save the user recipe to the local database
         public Task SaveRecipeAsync(UserRecipe recipe)
         {
             if (recipe.Id != null)
@@ -39,11 +45,13 @@ namespace RPGFitness.Data
             }
         }
 
+        //Return the user exercises table from the local database
         public Task<List<UserExercise>> RefreshExerciseAsync()
         {
             return database.Table<UserExercise>().ToListAsync();
         }
 
+        //Save the user exercise to the local database
         public Task SaveExerciseAsync(UserExercise exercise)
         {
             if (exercise.Id != null)

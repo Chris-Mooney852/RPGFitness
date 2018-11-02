@@ -23,6 +23,7 @@ namespace RPGFitness.Views
             CaloriesBurned.BindingContext = App.Manager.exerciseItem;
         }
 
+        //Add the selected exercise activity to the users exercise plan and save to the local database
         public async void OnAddClicked(object sender, EventArgs e)
         {
             App.UserItemManager.currentUserExercise.Id = null;
@@ -31,11 +32,9 @@ namespace RPGFitness.Views
             App.UserItemManager.currentUserExercise.exerciseType = App.Manager.exerciseItem.ex_Type;
 
             await App.UserItemManager.SaveUserExerciseAsync(App.UserItemManager.currentUserExercise);
-
             
             //Navigate to the main page of the app.
             App.navigationManager.ShowMainPage();
-
 
         }
     }

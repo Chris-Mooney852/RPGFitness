@@ -16,16 +16,15 @@ namespace RPGFitness.Views
 		public Meals ()
 		{
 			InitializeComponent ();
-
 		}
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             MealList.ItemsSource = await App.Manager.ReturnRecipies();
-
         }
 
+        //Set the the current meal item to the selected recipe
         void OnMealSelected(object sender, SelectedItemChangedEventArgs e)
         {
           
@@ -33,12 +32,10 @@ namespace RPGFitness.Views
             App.navigationManager.ShowRecipeContentsPage();
         }
 
-        
+        //Show the users meal plan page
         private void OnMyMealsClicked(object sender, EventArgs e)
-        {
-            
+        {           
             App.navigationManager.ShowMyMealPlanPage();
-
         }
     }
 }
